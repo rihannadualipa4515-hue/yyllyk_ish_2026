@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block title %}{{ course.title }} sapaklary — Ädimme-ädim{% endblock %}
+{% block body_class %}learning-page{% endblock %}
 {% block head %}
 <script defer src="{% static 'courses/app.js' %}"></script>
 {% endblock %}
@@ -26,11 +27,11 @@
 <main class="learn-layout" data-course="{{ course.id }}" data-step="{{ step_index }}" data-step-count="{{ step_count }}">
   <aside class="lesson-sidebar">
     <h2>{{ course.title }} kursy</h2>
-    <ol>
+    <ol class="lesson-list">
       {% for item in course.steps %}
       <li>
         <a class="lesson-link{% if forloop.counter0 == step_index %} is-current{% endif %}" href="{% url 'courses:lesson' course.id forloop.counter0 %}" data-lesson="{{ forloop.counter0 }}">
-          <span class="lesson-number" data-number="{{ forloop.counter0 }}">{{ forloop.counter }}</span>
+          <span class="lesson-number">{{ forloop.counter }}</span>
           <span>{{ item.title }}</span>
         </a>
       </li>

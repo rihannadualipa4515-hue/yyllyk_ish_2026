@@ -21,6 +21,15 @@ class CoursePagesTests(TestCase):
         self.assertContains(response, 'id="terminal-form"')
         self.assertContains(response, 'id="course-data"')
 
+    def test_lesson_sidebar_contains_every_course_lesson(self):
+        response = self.client.get(reverse("courses:learn", args=["git"]))
+
+        self.assertContains(response, 'class="lesson-list"')
+        self.assertEqual(
+            response.content.count(b'data-lesson='),
+            len(get_courses()[0]["steps"]),
+        )
+
     def test_all_legacy_lessons_are_loaded(self):
         courses = get_courses()
 

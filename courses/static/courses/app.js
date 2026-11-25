@@ -7,6 +7,8 @@
   const stepCount = Number(layout.dataset.stepCount);
   const lessonData = JSON.parse(document.getElementById("course-data").textContent);
   const activeStep = lessonData[stepIndex];
+  const lessonContent = document.querySelector(".lesson-content");
+  const lessonInner = lessonContent.querySelector(".lesson-inner");
   const stateKey = `okuw-simulator:${courseId}`;
   const progressKey = `okuw-progress:${courseId}`;
   const linesElement = document.getElementById("terminal-lines");
@@ -64,14 +66,28 @@
     document.querySelectorAll(".lesson-link").forEach((link) => {
       const index = Number(link.dataset.lesson);
       const number = link.querySelector(".lesson-number");
-      if (completed.includes(index)) {
-        number.textContent = "✓";
-        number.classList.add("is-done");
-      }
+      const isDone = completed.includes(index);
+      number.textContent = isDone ? "✓" : String(index + 1);
+      number.classList.toggle("is-done", isDone);
     });
     const done = completed.includes(stepIndex);
     document.getElementById("task-complete").hidden = !done;
     document.getElementById("hint-toggle").hidden = done;
+    fitLessonContent();
+  }
+
+  function fitLessonContent() {
+    if (!window.matchMedia("(min-width: 901px)").matches) {
+      lessonInner.style.zoom = "";
+      return;
+    }
+
+    lessonInner.style.zoom = "1";
+    const styles = window.getComputedStyle(lessonContent);
+    const verticalPadding = parseFloat(styles.paddingTop) + parseFloat(styles.paddingBottom);
+    const availableHeight = lessonContent.clientHeight - verticalPadding;
+    const scale = Math.min(1, availableHeight / lessonInner.scrollHeight);
+    lessonInner.style.zoom = String(scale);
   }
 
   function addLine(kind, text) {
@@ -325,6 +341,7 @@
     const hint = document.getElementById("hint");
     hint.hidden = !hint.hidden;
     event.currentTarget.textContent = hint.hidden ? "Kömek gerekmi?" : "Kömegi gizlemek";
+    fitLessonContent();
   });
 
   const dialog = document.getElementById("demo-dialog");
@@ -390,4 +407,6 @@
   });
   dialog.addEventListener("close", () => clearInterval(demoTimer));
   updateStatus();
+  document.fonts.ready.then(fitLessonContent);
+  window.addEventListener("resize", fitLessonContent);
 })();
