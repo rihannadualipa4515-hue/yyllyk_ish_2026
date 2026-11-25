@@ -1,0 +1,107 @@
+{% extends "courses/base.html" %}
+{% load static %}
+
+{% block title %}{{ course.title }} sapaklary — Ädimme-ädim{% endblock %}
+{% block head %}
+<script defer src="{% static 'courses/app.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<header class="learn-header">
+  <div class="learn-header-left">
+    <a class="back-link" href="{% url 'courses:index' %}">← Baş sahypa</a>
+    <span class="header-divider"></span>
+    <nav class="course-nav" aria-label="Kurslar">
+      {% for item in courses %}
+      <a href="{% url 'courses:learn' item.id %}"{% if item.id == course.id %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+  <div class="progress-summary">
+    <span><b id="done-count">0</b> / {{ step_count }} tamamlandy</span>
+    <div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div>
+  </div>
+</header>
+
+<main class="learn-layout" data-course="{{ course.id }}" data-step="{{ step_index }}" data-step-count="{{ step_count }}">
+  <aside class="lesson-sidebar">
+    <h2>{{ course.title }} kursy</h2>
+    <ol>
+      {% for item in course.steps %}
+      <li>
+        <a class="lesson-link{% if forloop.counter0 == step_index %} is-current{% endif %}" href="{% url 'courses:lesson' course.id forloop.counter0 %}" data-lesson="{{ forloop.counter0 }}">
+          <span class="lesson-number" data-number="{{ forloop.counter0 }}">{{ forloop.counter }}</span>
+          <span>{{ item.title }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ol>
+  </aside>
+
+  <section class="lesson-content">
+    <div class="lesson-inner">
+      <div class="eyebrow">{{ course.title }} <span>•</span> Ädim {{ step_number }} / {{ step_count }}</div>
+      <h1>{{ step.title }}</h1>
+      <div class="lesson-text">
+        {% for paragraph in paragraphs %}<p>{{ paragraph }}</p>{% endfor %}
+      </div>
+
+      <section class="example-card">
+        <div class="example-heading">
+          <h2>Mysal</h2>
+          <span>Setir basyň — simulýatorda işleýär</span>
+        </div>
+        <div class="code-example">
+          {% for line in example_lines %}
+          {% if line|slice:":1" == "#" %}
+          <div class="code-line comment">{{ line|default:" " }}</div>
+          {% elif line %}
+          <div class="code-line"><button class="run-example" type="button" data-command="{{ line }}">{{ line }}</button><button class="demo-button" type="button" data-command="{{ line }}" aria-label="10 sekuntlyk görkezme">▶</button></div>
+          {% else %}
+          <div class="code-line code-empty">&nbsp;</div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="task-card" data-pattern="{{ check_pattern }}">
+        <h2>Tabşyryk</h2>
+        <p>{{ step.task }}</p>
+        <p class="task-complete" id="task-complete" hidden>✓ Ýerine ýetirildi</p>
+        <button class="hint-toggle" type="button" id="hint-toggle">Kömek gerekmi?</button>
+        <code class="hint" id="hint" hidden>{{ step.hint }}</code>
+      </section>
+
+      <nav class="step-navigation" aria-label="Sapak nawigasiýasy">
+        {% if has_previous %}<a class="button button-outline" href="{% url 'courses:lesson' course.id previous_index %}">← Öňki</a>{% else %}<span></span>{% endif %}
+        {% if has_next %}<a class="button button-primary" href="{% url 'courses:lesson' course.id next_index %}">Indiki →</a>{% else %}<a class="button button-primary" href="{% url 'courses:index' %}">Tamamlamak</a>{% endif %}
+      </nav>
+    </div>
+  </section>
+
+  <section class="terminal" aria-label="Simulýator terminaly">
+    <div class="terminal-header">
+      <div class="terminal-title"><span class="traffic-light red"></span><span class="traffic-light yellow"></span><span class="traffic-light green"></span><span>simulýator — terminal</span></div>
+      <button type="button" id="reset-terminal" class="terminal-reset">Täzeden başlamak</button>
+    </div>
+    <div class="terminal-body" id="terminal-body">
+      <p class="terminal-help"># Buýruklary şu ýere ýazyň we Enter basyň. Mysal bölümindäki setirleri basyp hem synap bilersiňiz. "help" — kömek.</p>
+      <div id="terminal-lines" aria-live="polite"></div>
+      <form id="terminal-form" class="terminal-prompt">
+        <label for="terminal-input"><span class="prompt-user">okuwcy@terminal</span><span class="prompt-separator">:</span><span id="prompt-path">~</span><span class="prompt-symbol">$</span></label>
+        <input id="terminal-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal buýrugy" autofocus>
+      </form>
+    </div>
+    <div class="terminal-footer">Faýllar: <span id="file-list">—</span> · Şaha: <span id="branch-name">—</span> · Commit: <span id="commit-count">0</span></div>
+  </section>
+</main>
+
+<dialog id="demo-dialog" class="demo-dialog">
+  <div class="demo-top"><strong>Buýrugyň simulýator wideosy</strong><button type="button" id="close-demo" aria-label="Ýap">×</button></div>
+  <p>Buýruk 10 sekuntda ýazylyp, netijesi görkezilýär.</p>
+  <div class="demo-screen"><div class="demo-command">$ <span id="demo-typed"></span><span id="demo-cursor">▍</span></div><pre id="demo-result"></pre><span id="demo-status"></span></div>
+  <div class="demo-progress"><div id="demo-progress-fill"></div></div>
+  <div class="demo-controls"><span id="demo-seconds">10 sek</span><div><button type="button" id="demo-restart">Täzeden</button><button type="button" id="demo-toggle">Duruz</button></div></div>
+</dialog>
+{{ course.steps|json_script:"course-data" }}
+{% endblock %}

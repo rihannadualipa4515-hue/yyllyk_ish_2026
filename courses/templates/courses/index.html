@@ -1,0 +1,30 @@
+{% extends "courses/base.html" %}
+
+{% block title %}Kurslary saýlaň — Ädimme-ädim okuw{% endblock %}
+
+{% block content %}
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="{% url 'courses:index' %}">Ädimme-ädim okuw</a>
+    <span class="header-note">Okuw programmasy · Git · GitHub · Docker</span>
+  </div>
+</header>
+<main class="home-main">
+  <section class="intro">
+    <p class="eyebrow">Mugt interaktiw gollanma</p>
+    <h1>Kurslary saýlaň</h1>
+    <p>Git, GitHub we Docker-i hiç hili tejribesiz hem öwrenip bilersiňiz. Her sapakda düşündiriş, teswirli mysal we simulýatorda ýerine ýetirmeli tabşyryk bar.</p>
+    <p class="muted">Maslahat: tertip boýunça — Git, soňra GitHub, soňra Docker.</p>
+  </section>
+  <section class="course-grid" aria-label="Okuw kurslary">
+    {% for course in courses %}
+    <a class="course-card" href="{% url 'courses:learn' course.id %}">
+      <span class="course-number">{{ forloop.counter }}</span>
+      <h2>{{ course.title }}</h2>
+      <p>{{ course.intro }}</p>
+      <span class="course-count">{{ course.steps|length }} sapak <span aria-hidden="true">→</span></span>
+    </a>
+    {% endfor %}
+  </section>
+</main>
+{% endblock %}

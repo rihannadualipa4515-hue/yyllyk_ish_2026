@@ -1,0 +1,770 @@
+[
+  {
+    "id": "git",
+    "title": "Git",
+    "intro": "Git — faýllaryňyzyň ähli üýtgeşmelerini ýatda saklaýan ulgam. Ýalňyşsaňyz, öňki ýagdaýa gaýdyp, başgalar bilen bilelikde işläp bilersiňiz.",
+    "steps": [
+      {
+        "title": "1. Taslama üstünde işlemegiň kynçylyklary",
+        "text": "Göz öňüne getiriň: siz kurs işini ýazýarsyňyz. Papkaňyzda şeýle faýllar köpelýär: taslama.docx, taslama_v2.docx, taslama_v3_soňky.docx, taslama_v3_soňky_hakyky.docx... Haýsysynyň dogrudygyny hiç kim bilmeýär.\n\nŞeýle ýagdaýda bäş mesele ýüze çykýar:\n• Yza gaýtarmak (Undo/Redo) — düýnki ýagdaýa nädip gaýtmaly?\n• Üýtgeşmeleri yzarlamak — kim, haçan, näme üýtgetdi?\n• Başgalar bilen işlemek — iki adam bir faýly nädip üýtgetmeli?\n• Üýtgeşmeleri paýlaşmak — işiňizi ýoldaşyňyza nädip ibermeli?\n• Bir ýeri birbada üýtgetmek — iki adam bir setiri üýtgetse näme bolar?\n\nGit şu meseleleriň hemmesini çözýär.",
+        "example": "# Gitsiz papka:\n#   taslama.docx\n#   taslama_v2.docx\n#   taslama_v3_soňky.docx\n#   taslama_v3_soňky_v2.docx   ← haýsysy dogry?!\n\n# Git bilen: bir faýl + ähli wersiýalaryň taryhy\nls",
+        "task": "Simulýatorda ls ýazyp, papkanyň häzir boşdugyny görüň.",
+        "hint": "ls",
+        "check": "^ls",
+        "slug": "1-taslama-st-nde-i-lemegi-kyn-ylyklary"
+      },
+      {
+        "title": "2. Git-iň taryhy we esasy mümkinçilikleri",
+        "text": "Git-i 2005-nji ýylda Linus Torwalds Linux ýadrosyny döretmek üçin ýazdy. Ilkinji durnukly wersiýasy 2005-nji ýylyň dekabrynda çykdy.\n\nOnuň maksatlary: paýlanan (her kimde doly göçürme bolýan) ulgam bolmak; üýtgeşmeleri 3 sekuntdan çalt ýazmak; maglumatlary tötänleýin ýa-da bilgeşleýin zaýalanmakdan goramak.\n\nGit-iň üç esasy mümkinçiligi:\n✓ Ähli üýtgeşmeleriňizi yzarlamak\n✓ Başgalar bilen bilelikde işlemek\n✓ Işiňizi başgalar bilen paýlaşmak\n\nGyzykly fakt: 'git' sözi Iňlis jargonynda 'ýakymsyz adam' diýmegi aňladýar.",
+        "example": "# Git kompýuterde barmy? Wersiýasyny barlaýarys:\ngit --version\n# Netije: git version 2.45.0",
+        "task": "git --version ýazyň.",
+        "hint": "git --version",
+        "check": "^git --version$",
+        "slug": "2-git-i-taryhy-we-esasy-m-mkin-ilikleri"
+      },
+      {
+        "title": "3. Git bilen işlemegiň tertibi (Workflow)",
+        "text": "Git bilen iş hemişe şu tegelek boýunça gidýär:\n\n1) Şaha (branch) döretmek\n2) Arassa papkadan başlamak\n3) Käbir üýtgeşme etmek\n4) Surat (snapshot) taýýarlamak — git add\n5) Commit etmek — git commit\n6) Taýýar bolanda: Pull we Push (uzakdaky repozitoriýa bilen çalyşmak)\n\nSoňra 3-nji ädimden gaýtalanýar.\n\nMeňzetme: albom ýasamak. Surata düşürýärsiňiz (üýtgeşme), gowularyny saýlaýarsyňyz (add), albomа ýelmeýärsiňiz (commit), albomy dostlaryňyza görkezýärsiňiz (push).",
+        "example": "# Tegelegiň gysgaça görnüşi:\n# üýtget → git add → git commit → (gaýtala) → git push\n\n# Häzir näme ýagdaýdadygymyzy görmek:\ngit status",
+        "task": "git status ýazyň. Entek repozitoriýa ýoklugy sebäpli Git ýalňyşlyk görkezer — bu kadaly. Tabşyryk diňe buýrugy synap görmek.",
+        "hint": "git status",
+        "check": "^git status$",
+        "slug": "3-git-bilen-i-lemegi-tertibi-workflow"
+      },
+      {
+        "title": "4. Git sözlügi (Terminologiýa)",
+        "text": "Öňe gitmezden ozal esasy sözleri öwreneliň:\n\n• Repozitoriýa (Repository) — suratlaryň we taryhyň saklanýan gaby (papkasy).\n• Remote — başga repozitoriýa bilen baglanyşyk, mysal üçin GitHub (internet salgysy ýaly).\n• Commit — surat, taryhyň esasy bölegi. Taslamanyň doly göçürmesi. Içinde awtor, wagt, düşündiriş we öňki commit-e salgylanma bar.\n• Reference (salgylanma) — haýsydyr bir commit-i görkezýän peýkam.\n• Branch (şaha) — aýratyn iş ýoly.\n• Merge (birleşdirmek) — iki taryh ýoluny birleşdirýän commit (onuň 2 sany 'ene-atasy' bar).",
+        "example": "# Git-iň öz kömegini açmak — ähli buýruklaryň sanawy\ngit help\n\n# Belli bir buýruk barada kömek\ngit help commit",
+        "task": "git help ýazyň we buýruklaryň sanawyny görüň.",
+        "hint": "git help",
+        "check": "^git (help|--help)",
+        "slug": "4-git-s-zl-gi-terminologi-a"
+      },
+      {
+        "title": "5. Sazlamalar: adyňyz we e-poçtaňyz",
+        "text": "Git her commit-de 'kim etdi?' diýip ýazýar. Şonuň üçin ilki özüňizi tanyşdyrmaly. Bu diňe bir gezek edilýär.\n\nBuýrugyň gurluşy: git config --global <açar> <baha>\n• git — programma\n• config --global — 'ähli taslamalar üçin sazla' diýen flag\n• user.name — açar (näme sazlanýar)\n• 'Adyňyz' — baha\n\ncore.editor — Git tekst ýazmak üçin haýsy redaktory açmalydygyny aňladýar. Adaty ýagdaýda Vim; tanamaýan bolsaňyz nano ýa-da gedit saýlaň.",
+        "example": "# Adyňyzy ýazyň\ngit config --global user.name \"Aman Amanow\"\n\n# E-poçtaňyzy ýazyň\ngit config --global user.email \"aman@mysal.com\"\n\n# Redaktory saýlamak (islege görä)\ngit config --global core.editor nano",
+        "task": "git config --global user.name \"Adyňyz\" we user.email buýruklaryny ýazyň.",
+        "hint": "git config --global user.name \"Aman Amanow\"",
+        "check": "^git config (--global )?user\\.(name|email) .+",
+        "slug": "5-sazlamalar-ady-yz-we-e-po-ta-yz"
+      },
+      {
+        "title": "6. Sazlamalary görmek we derejeleri",
+        "text": "git config -l ähli sazlamalary sanaw görnüşinde görkezýär.\n\nGit-de sazlamalaryň 3 derejesi bar:\n• System — tutuş kompýuter üçin (köplenç /etc papkasynda)\n• Global — siziň ulanyjyňyz üçin (~/.gitconfig faýly)\n• Local — diňe şu taslama üçin (.git/config faýly)\n\nAşaky dereje ýokarkyny ýapýar (overrides): Local > Global > System. Meselem, işde başga e-poçta ulanmak isleseňiz, diňe şol taslamada --global-syz ýazýarsyňyz.",
+        "example": "# Ähli sazlamalary görmek\ngit config -l\n# Netije:\n# user.name=Aman Amanow\n# user.email=aman@mysal.com\n\n# Diňe bir sazlamany görmek\ngit config user.name",
+        "task": "git config -l ýazyň.",
+        "hint": "git config -l",
+        "check": "^git config (-l|--list)$",
+        "slug": "6-sazlamalary-g-rmek-we-derejeleri"
+      },
+      {
+        "title": "7. Repozitoriýa döretmek",
+        "text": "Indi taslama papkasyny döredip, ony Git repozitoriýasyna öwüreliň.\n\n• mkdir — täze papka döretmek\n• cd — papkanyň içine girmek\n• git init — Git-i başlatmak\n• ls -a — nokat bilen başlaýan gizlin faýllary hem görkezmek\n\ngit init-den soň gizlin .git papkasy peýda bolýar. Git ähli taryhy şol ýerde saklaýar. Ony hiç haçan elde üýtgetmäň!",
+        "example": "# mypy atly taslama papkasyny döretmek\nmkdir mypy\n\n# Papkanyň içine girmek\ncd mypy\n\n# Git-i başlatmak\ngit init\n\n# Gizlin faýllary hem görmek — .git peýda boldy\nls -a",
+        "task": "mkdir mypy, cd mypy, git init buýruklaryny yzygiderli ýazyň.",
+        "hint": "mkdir mypy → cd mypy → git init",
+        "check": "^git init$",
+        "slug": "7-repozitori-a-d-retmek"
+      },
+      {
+        "title": "8. Repozitoriýanyň içine seretmek",
+        "text": ".git papkasynyň içinde näme bar? tree buýrugy papkanyň agaç görnüşini görkezýär.\n\n• HEAD — häzir haýsy şahadadygyňyzy görkezýär\n• config — şu taslamanyň (local) sazlamalary\n• objects — ähli commit-ler we faýllar şu ýerde gysylyp saklanýar\n• refs/heads — şahalar\n• refs/tags — bellikler\n\nBilmek gyzykly, ýöne bu ýere el degirmeli däl.",
+        "example": "# .git papkasynyň gurluşy\ntree .git",
+        "task": "tree .git ýazyň.",
+        "hint": "tree .git",
+        "check": "^tree \\.git$",
+        "slug": "8-repozitori-any-i-ine-seretmek"
+      },
+      {
+        "title": "9. Faýlyň 4 ýagdaýy",
+        "text": "Git-de her faýl dört ýagdaýyň birinde bolýar:\n\n• untracked (yzarlanmaýan) — Git bu faýl barada hiç zat bilmeýär.\n• unmodified (üýtgemedik) — Git faýly tanaýar, soňky commit-den bäri üýtgemedi.\n• modified (üýtgedilen) — Git faýly tanaýar we ol üýtgedildi.\n• staged (taýýarlanan) — faýl commit-e taýýar.\n\nMeňzetme: täze okuwçy (untracked) → synpa ýazyldy (staged) → žurnala girdi (unmodified) → baha aldy (modified) → ýene žurnala ýazmaly (staged).\n\ngit status her faýlyň ýagdaýyny görkezýär.",
+        "example": "# Ýagdaýy barlamak\ngit status\n# Netije:\n# On branch main\n# nothing to commit — entek faýl ýok",
+        "task": "git status ýazyň.",
+        "hint": "git status",
+        "check": "^git status$",
+        "slug": "9-fa-ly-4-agda-y"
+      },
+      {
+        "title": "10. Täze faýl döretmek",
+        "text": "hello.py atly kiçijik Python programmasyny döredeliň. Hakyky kompýuterde muny redaktorda (nano, vim, gedit) ýazýarsyňyz. Simulýatorda echo ulanýarys:\n\n• echo \"tekst\" > faýl — täze faýl döredýär (ýa-da içini çalyşýar)\n• echo \"tekst\" >> faýl — faýlyň ahyryna setir goşýar\n\nSoňra programmany python bilen işledip bolýar (islege görä).",
+        "example": "# hello.py faýlyny döretmek\necho 'print(\"Hello, Git!\")' > hello.py\n\n# Içini görmek\ncat hello.py\n\n# Programmany işletmek (islege görä)\npython hello.py\n# Netije: Hello, Git!",
+        "task": "hello.py faýlyny dörediň, soňra git status ýazyň — faýl 'Untracked' bolmaly.",
+        "hint": "echo 'print(\"Hello, Git!\")' > hello.py → git status",
+        "check": "^git status$",
+        "slug": "10-t-ze-fa-l-d-retmek"
+      },
+      {
+        "title": "11. Faýly staging-e goşmak (git add)",
+        "text": "Commit etmezden öň, haýsy faýllaryň surata girjekdigini saýlamaly. Bu ýer 'staging area' (taýýarlyk meýdany) diýilýär.\n\nMeňzetme: surata düşmezden öň adamlary kadrda ýerleşdirýärsiňiz. git add — adamy kadra goşmak.\n\ngit add-dan soň git status faýly 'Changes to be committed' (new file) diýip görkezýär — ol indi 'staged'.",
+        "example": "# hello.py faýlyny staging-e goşmak\ngit add hello.py\n\n# Ýagdaýy barlamak — indi 'new file: hello.py'\ngit status",
+        "task": "git add hello.py ýazyň.",
+        "hint": "git add hello.py",
+        "check": "^git add (\\.|\\S+)",
+        "slug": "11-fa-ly-staging-e-go-mak-git-add"
+      },
+      {
+        "title": "12. Ilkinji commit",
+        "text": "git commit staging-däki faýllaryň suratyny alýar we taryha ýazýar.\n\n-m flagy bilen commit habaryny şol ýerde ýazýarys. Habarsyz ýazsaňyz, Git redaktory açar.\n\nMöhüm: commit habary düşnükli, gysga we manyly bolmaly! 'düzediş' ýa-da '123' däl-de, 'Salamlaşma programmasy goşuldy' ýaly.",
+        "example": "# Surat almak we düşündiriş ýazmak\ngit commit -m \"Ilkinji commit: hello.py goşuldy\"\n# Netije:\n# [main (root-commit) a1b2c3d] Ilkinji commit...\n#  1 file changed\n#  create mode 100644 hello.py",
+        "task": "git commit -m \"Ilkinji commit\" ýazyň.",
+        "hint": "git commit -m \"Ilkinji commit\"",
+        "check": "^git commit -m .+",
+        "slug": "12-ilkinji-commit"
+      },
+      {
+        "title": "13. Faýly üýtgetmek we README goşmak",
+        "text": "Indi Git yzarlaýan faýly üýtgedeliň we täze README faýlyny döredeliň.\n\nSoňra git status iki dürli ýagdaýy görkezer:\n• hello.py — 'modified'. Git bu faýly tanaýar, emma soňky commit-den bäri üýtgändigini ýatladýar.\n• README — 'untracked'. Git bu faýl barada hiç zat bilmeýär.\n\nREADME — taslama näme barada, nädip işletmeli diýen düşündiriş faýly.",
+        "example": "# hello.py-a täze setir goşmak\necho 'print(\"Git bilen işleýärin\")' >> hello.py\n\n# README faýlyny döretmek\necho \"Bu meniň ilkinji Python taslamam\" > README\n\n# Ýagdaýy barlamak\ngit status",
+        "task": "hello.py-ny üýtgediň, README dörediň we git status ýazyň.",
+        "hint": "echo 'print(\"Täze\")' >> hello.py → echo \"Taslama\" > README → git status",
+        "check": "^git status$",
+        "slug": "13-fa-ly-tgetmek-we-readme-go-mak"
+      },
+      {
+        "title": "14. Birnäçe faýly goşmak we commit etmek",
+        "text": "Faýllary birme-bir ýa-da bilelikde goşup bolýar:\n• git add hello.py README — ikisini birden\n• git add . — ähli üýtgän faýllary\n\nSoňra commit edýäris. Indi taryhda 2 commit bar.",
+        "example": "# Iki faýly birden goşmak\ngit add hello.py README\n\n# Barlamak\ngit status\n\n# Commit\ngit commit -m \"README goşuldy, hello.py üýtgedildi\"",
+        "task": "Iki faýly goşuň we commit ediň.",
+        "hint": "git add hello.py README → git commit -m \"README goşuldy\"",
+        "check": "^git commit -m .+",
+        "slug": "14-birn-e-fa-ly-go-mak-we-commit-etmek"
+      },
+      {
+        "title": "15. Commit taryhyny görmek (git log)",
+        "text": "git log ähli commit-leri iň täzesinden başlap görkezýär. Her commit-de:\n• commit a1b2c3... — SHA-1 açary (Secure Hash Algorithm 1). Bu commit-iň özboluşly 40 belgili ID-si, pasport belgisi ýaly.\n• Author — kim etdi\n• Date — haçan\n• habar — näme üçin\n\nBellik: Git SHA-1-i diňe özboluşly belgi döretmek üçin ulanýar.",
+        "example": "# Doly taryh\ngit log",
+        "task": "git log ýazyň.",
+        "hint": "git log",
+        "check": "^git log$",
+        "slug": "15-commit-taryhyny-g-rmek-git-log"
+      },
+      {
+        "title": "16. Gysga we grafikli taryh",
+        "text": "Commit köp bolanda git log uzyn bolýar. Gysga görnüşler:\n• git log --oneline — her commit bir setirde (gysga ID + habar)\n• git log --graph — şahalary çyzyk bilen görkezýär\n• Ikisini bilelikde hem ulanyp bolýar.\n\ngitk — taryhy aýnada suratly görkezýän grafiki programma (hakyky kompýuterde).\n\nAmal: hello.py-ny ýene üýtgediň, add we commit ediň, soňra taryha serediň.",
+        "example": "# hello.py-ny ýene üýtgetmek we saklamak\necho 'print(\"Üçünji wersiýa\")' >> hello.py\ngit add hello.py\ngit commit -m \"Üçünji setir goşuldy\"\n\n# Bir setirlik taryh\ngit log --oneline\n\n# Grafikli taryh\ngit log --oneline --graph\n\n# Grafiki programma\ngitk",
+        "task": "git log --oneline ýazyň.",
+        "hint": "git log --oneline",
+        "check": "^git log .*--oneline",
+        "slug": "16-gysga-we-grafikli-taryh"
+      },
+      {
+        "title": "17. Öňki commit-lere seretmek",
+        "text": "Köne wersiýa nähili bolupdy? git checkout <SHA-1> şol commit-iň wagtyndaky faýllary görkezýär.\n\nBellik: SHA-1 açarynyň diňe ilkinji 7 belgisi ýeterlik (git log --oneline şony görkezýär).\n\nBu ýagdaý 'detached HEAD' diýilýär — siz taryhda 'gezelenç edýärsiňiz', täze commit etmek üçin däl.\n\nMeňzetme: köne surat albomyny açyp seretmek.",
+        "example": "# Ilki gysga ID-leri görmek\ngit log --oneline\n\n# Köne commit-e geçmek (ID-ni öz taryhyňyzdan alyň!)\n# git checkout a1b2c3d\n\n# Köne faýlyň içine seretmek\ncat hello.py",
+        "task": "git log --oneline bilen ID tapyň we git checkout <ID> ýazyň.",
+        "hint": "git log --oneline → git checkout <ilkinji commit-iň 7 belgisi>",
+        "check": "",
+        "slug": "17-ki-commit-lere-seretmek"
+      },
+      {
+        "title": "18. Soňky commit-e gaýtmak",
+        "text": "Gezelenç gutarandan soň, esasy şaha gaýdýarys: git checkout main.\n\nBellik: köne kitaplarda we Git-iň köne wersiýalarynda esasy şaha 'master' diýilýär, täzelerde 'main'. Simulýatorda ikisi hem işleýär.",
+        "example": "# Esasy şaha gaýtmak\ngit checkout main\n# Netije: Switched to branch 'main'\n\n# Faýl iň täze ýagdaýyna gaýtdy\ncat hello.py",
+        "task": "git checkout main ýazyň.",
+        "hint": "git checkout main",
+        "check": "^git checkout (main|master)$",
+        "slug": "18-so-ky-commit-e-ga-tmak"
+      },
+      {
+        "title": "19. Soňky commit-leri doly öçürmek",
+        "text": "Soňky commit ýalňyş boldy we ony düýbünden ýok etmek isleýärsiňiz? git reset --hard ulanylýar.\n\n• HEAD — häzirki (soňky) commit\n• HEAD~1 — ondan bir öňki\n• HEAD~2 — iki öňki\n\ngit reset --hard HEAD~1 soňky commit-i taryhdan öçürýär we faýllary bir öňki ýagdaýa gaýtarýar.\n\n⚠ Üns beriň: bu yzyna gaýtaryp bolmaýan amal! Öçürilen commit ýitýär.",
+        "example": "# Taryhy görmek\ngit log --oneline\n\n# Soňky commit-i öçürmek\ngit reset --hard HEAD~1\n# Netije: HEAD is now at ...\n\n# Barlamak — bir commit az\ngit log --oneline",
+        "task": "git reset --hard HEAD~1 ýazyň.",
+        "hint": "git reset --hard HEAD~1",
+        "check": "^git reset --hard \\S+",
+        "slug": "19-so-ky-commit-leri-doly-rmek"
+      },
+      {
+        "title": "20. Faýlyň adyny üýtgetmek",
+        "text": "Iki usul bar:\n\n1) Git usuly: git mv köne täze — adyny üýtgedýär we üýtgeşmäni staging-e goşýar. Soňra diňe commit galýar.\n\n2) Git-den daşarda: adaty mv köne täze. Bu ýagdaýda Git köne faýly 'deleted', täzesini 'untracked' görýär. Şonuň üçin IKI faýly hem (!) git add etmeli.\n\nBirinji usul aňsat we ygtybarly.",
+        "example": "# 1-nji usul: Git usuly\ngit mv README README.md\ngit commit -m \"README adyny üýtgetdik\"\n\n# 2-nji usul: Git-den daşarda\nmv README.md README.txt\ngit add README.md README.txt   # iki faýly hem!\ngit commit -m \"Ýene at üýtgetdik\"",
+        "task": "git mv README README.md, soňra git commit -m \"...\" ýazyň.",
+        "hint": "git mv README README.md → git commit -m \"At üýtgedildi\"",
+        "check": "^git mv \\S+ \\S+$",
+        "slug": "20-fa-ly-adyny-tgetmek"
+      },
+      {
+        "title": "21. Faýly öçürmek",
+        "text": "Bu ýerde hem iki usul bar:\n\n1) Git usuly: git rm faýl — faýly öçürýär we öçürilmegi staging-e goşýar.\n\n2) Git-den daşarda: adaty rm faýl. Git ony 'deleted' görýär, emma bu üýtgeşmäni git add bilen habar bermeli.\n\nIki ýagdaýda hem soňunda commit etmeli. Commit netijesinde 'delete mode' diýen setir çykýar.",
+        "example": "# Synag faýly döretmek we saklamak\necho \"wagtlaýyn\" > message.txt\ngit add message.txt\ngit commit -m \"message.txt goşuldy\"\n\n# 1-nji usul: Git usuly bilen öçürmek\ngit rm message.txt\ngit commit -m \"message.txt öçürildi\"\n\n# 2-nji usul (başga faýl bilen):\n# rm faýl  →  git add faýl  →  git commit -m \"...\"",
+        "task": "message.txt dörediň, commit ediň, soňra git rm message.txt ýazyň.",
+        "hint": "echo \"x\" > message.txt → git add message.txt → git commit -m \"goşuldy\" → git rm message.txt",
+        "check": "^git rm \\S+",
+        "slug": "21-fa-ly-rmek"
+      },
+      {
+        "title": "22. Käbir faýllary äsgermezlik etmek (.gitignore)",
+        "text": "Käbir faýllary Git-e salmak gerek däl: wagtlaýyn faýllar, gizlin açarlar, uly maglumat faýllary, programma işlände döreýän faýllar (.pyc, .log).\n\n.gitignore faýlyna şol faýllaryň atlaryny ýa-da nusgalaryny ýazýarsyňyz:\n• *.log — .log bilen gutarýan ähli faýllar\n• gizlin.txt — anyk bir faýl\n\nGit bu faýllary git status-da görkezmeýär we git add . bilen goşmaýar. .gitignore faýlynyň özüni bolsa commit etmeli.",
+        "example": "# Wagtlaýyn faýl döretmek\necho \"ýalňyşlyklar\" > debug.log\n\n# .gitignore-a nusga ýazmak\necho \"*.log\" > .gitignore\n\n# Barlamak — debug.log görünmeýär, diňe .gitignore\ngit status\n\n# .gitignore-y saklamak\ngit add .gitignore\ngit commit -m \".gitignore goşuldy\"",
+        "task": "echo \"*.log\" > .gitignore ýazyň, soňra git status bilen barlaň.",
+        "hint": "echo \"x\" > debug.log → echo \"*.log\" > .gitignore → git status",
+        "check": "^git status$",
+        "slug": "22-k-bir-fa-llary-sgermezlik-etmek-gitignore"
+      },
+      {
+        "title": "23. Şahalar (branch)",
+        "text": "Şaha — esasy işi bozman, täze zady synap görmek üçin aýry ýol.\n\nMeňzetme: kitabyň göçürmesini alyp, oňa bellik edýärsiňiz. Asyl kitap üýtgemeýär.\n\n• git branch — şahalaryň sanawy (* — häzirki)\n• git checkout -b at — täze şaha döredip, oňa geçmek",
+        "example": "# Täze şaha döredip, oňa geçmek\ngit checkout -b taze-funksiya\n\n# Şahalaryň sanawy\ngit branch\n\n# Şu şahada iş etmek\necho \"täze funksiýa\" > funksiya.py\ngit add funksiya.py\ngit commit -m \"Täze funksiýa\"",
+        "task": "git checkout -b taze-funksiya ýazyň.",
+        "hint": "git checkout -b taze-funksiya",
+        "check": "^git (checkout -b|switch -c) \\S+",
+        "slug": "23-ahalar-branch"
+      },
+      {
+        "title": "24. Şahalary birleşdirmek (merge)",
+        "text": "Täze şahadaky iş taýýar bolanda, ony esasy şaha birleşdirýärler. Ilki main-e gaýdyp, soňra merge edilýär.\n\nMerge commit-iň 2 'ene-atasy' bolýar — iki taryh ýoly birleşýär.",
+        "example": "# main şaha gaýtmak\ngit checkout main\n\n# taze-funksiya şahasyny main-e birleşdirmek\ngit merge taze-funksiya\n\n# Netijäni görmek\ngit log --oneline --graph",
+        "task": "git checkout main, soňra git merge taze-funksiya ýazyň.",
+        "hint": "git checkout main → git merge taze-funksiya",
+        "check": "^git merge \\S+",
+        "slug": "24-ahalary-birle-dirmek-merge"
+      }
+    ]
+  },
+  {
+    "id": "github",
+    "title": "GitHub",
+    "intro": "GitHub-yň «Git Cheat Sheet» gollanmasy esasynda: Git sazlamalary, faýllaryň ýagdaýy, şahalar, paýlaşmak we taryh bilen işlemek. Her buýruk aýratyn sapakda türkmençe düşündirilýär.",
+    "steps": [
+      {
+        "slug": "giris",
+        "title": "Git we GitHub: gollanma giriş",
+        "text": "Git — mugt, açyk çeşmeli, paýlanan wersiýa gözegçilik ulgamydyr. Ol kompýuteriňizdäki faýllaryň üýtgeşmelerini we olaryň taryhyny saklaýar. GitHub bolsa Git repozitoriýalaryny internetde paýlaşmaga we bilelikde işlemäge hyzmat edýär. Repozitoriýa — taslamanyň faýllary we olaryň taryhy saklanýan ýer.\n\nBu gollanma iň köp ulanylýan Git buýruklaryny jemleýär. Buýruklardaky [file], [branch] we [url] ýerine öz faýlyňyzyň adyny, şahanyň adyny ýa-da salgysyny ýazmaly; kwadrat ýaýlary ýazmaly däl. Commit — saýlanan üýtgeşmeleri taryha ýazýan saklanyş nokady. Staging — indiki commit üçin saýlanan üýtgeşmeleriň taýýarlyk meýdany.\n\nGurmak we grafiki programmalar: gollanmada Windows üçin windows.github.com, Mac üçin mac.github.com salgylary berilýär; bular taryhy salgylar. Häzirki Git gurujylary: https://git-scm.com/downloads. GitHub Desktop: https://desktop.github.com. Linux üçin hem resmi Git sahypasyndaky gurnama görkezmelerini ulanyň. Grafiki programma gündelik gözden geçirmegi we repozitoriýalary deňleşdirmegi ýeňilleşdirýär.\n\nBilim: «Bilelikde has gowy öwrediň we öwreniň». Gollanma GitHub-yň talyplar we mugallymlar üçin bilim mümkinçiliklerini görkezýär. Häzirki şertleri https://education.github.com sahypasynda barlaň; aragatnaşyk salgysy: education@github.com. Buýruk mysallaryndaky hasap atlary we e-poçta salgylary diňe okuw üçin oýlanyp tapyldy.",
+        "example": "# Git-iň wersiýasyny barlamak\ngit --version",
+        "task": "git --version buýrugyny synap görüň.",
+        "hint": "git --version",
+        "check": "^git --version$"
+      },
+      {
+        "slug": "config-name",
+        "title": "git config --global user.name",
+        "text": "Sazlamak — awtoryň ady\n\nGit her commit bilen awtoryň adyny saklaýar. --global sazlamany siziň ähli ýerli taslamalaryňyz üçin ulanýar. user.name GitHub-a giriş ady däl, taryhda görünjek adyňyzdyr.\n\nMysal: topar işinde haýsy üýtgeşmäni Amanyň edendigini bu at arkaly bilýärsiňiz. Iki sözli at dyrnak içinde ýazylýar.",
+        "example": "# Awtoryň adyny sazlamak\ngit config --global user.name \"Aman Amanow\"\n# Saklanan ady görmek\ngit config user.name",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git config --global user.name \"Aman Amanow\" bu?rugyny synap g?r??.",
+        "hint": "git config --global user.name \"Aman Amanow\"",
+        "check": "^git config --global user\\.name .+$"
+      },
+      {
+        "slug": "config-email",
+        "title": "git config --global user.email",
+        "text": "Sazlamak — e-poçta\n\nuser.email her commit bilen baglanyşdyrylýan e-poçta salgysydyr. Bu buýruk hasap açmaýar we parol saklamaýar.\n\nMysal: mugallym taryhda awtoryň adyny we e-poçtasyny görýär. Hakyky taslamada öz dogry salgynyzy ulanyň; aşakdaky salgy okuw mysalydyr.",
+        "example": "git config --global user.email \"aman@example.com\"\n# Netijäni barlamak\ngit config user.email",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git config --global user.email \"aman@example.com\" bu?rugyny synap g?r??.",
+        "hint": "git config --global user.email \"aman@example.com\"",
+        "check": "^git config --global user\\.email .+$"
+      },
+      {
+        "slug": "config-color",
+        "title": "git config --global color.ui auto",
+        "text": "Sazlamak — reňkli çykyş\n\ncolor.ui auto hakyky terminalda Git çykyşyny laýyk ýagdaýlarda reňkli görkezýär. Mysal üçin, goşulan we aýrylan setirleri tapawutlandyrmak aňsatlaşýar. auto — reňki terminalyň mümkinçiliklerine görä awtomatik ulanmak.\n\nSimulýator sazlamany saklaýar; terminalyň öz okuw reňkleri üýtgemeýär.",
+        "example": "git config --global color.ui auto\ngit config color.ui",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git config --global color.ui auto bu?rugyny synap g?r??.",
+        "hint": "git config --global color.ui auto",
+        "check": "^git config --global color\\.ui auto$"
+      },
+      {
+        "slug": "init",
+        "title": "git init",
+        "text": "Sazlamak we başlatmak\n\nHäzirki papkany Git repozitoriýasyna öwürýär. Gizlin .git papkasynda taryh we sazlamalar saklanýar; adaty faýllaryňyz öçürilmeýär.\n\nMysal: täze kurs işiniň papkasyny döredip, şol ýerde Git-i başlatmak. init diňe repozitoriýa döredýär; faýly taryha ýazmak üçin add we commit gerek.",
+        "example": "# Taslama papkasyny döretmek\nmkdir taslama\ncd taslama\n# Git-i başlatmak\ngit init\nls -a",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git init bu?rugyny synap g?r??.",
+        "hint": "git init",
+        "check": "^git init$"
+      },
+      {
+        "slug": "clone",
+        "title": "git clone [url]",
+        "text": "Sazlamak we göçürmek\n\nUzakdaky repozitoriýanyň faýllaryny we taryhyny täze ýerli papka göçürýär. origin baglanyşygy awtomatik döredilýär.\n\nMysal: toparyň eýýäm başlan taslamasyna goşulmak üçin init däl-de clone ulanýarsyňyz. Hakyky Git-de soňra cd taslama gerek; bu simulýator göçürilen papka awtomatik girýär. Salgy okuw mysalydyr, internetden hakyky göçürme edilmeýär.",
+        "example": "git clone https://github.com/okuw-mysaly/taslama.git\n# Göçürilen faýllar\nls\ngit log",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git clone https://github.com/okuw-mysaly/taslama.git bu?rugyny synap g?r??.",
+        "hint": "git clone https://github.com/okuw-mysaly/taslama.git",
+        "check": "^git clone \\S+$"
+      },
+      {
+        "slug": "status",
+        "title": "git status",
+        "text": "Taýýarlyk we saklanyş nokatlary\n\nIş papkasyndaky faýllaryň ýagdaýyny görkezýär: untracked — entek yzarlanmaýan; modified — üýtgedilen; changes to be committed — indiki commit üçin saýlanan.\n\nMeňzetme: tabşyryşyň öň ýanynda haýsy sahypalaryň taýýar, haýsylarynyň entek işlenýändigini barlamak. status faýllary üýtgetmeýär.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\n# Yzarlanýan faýly üýtgetmek\necho \"Goşmaça setir\" >> README.md\n# Ýagdaýy görmek\ngit status",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git status bu?rugyny synap g?r??.",
+        "hint": "git status",
+        "check": "^git status$"
+      },
+      {
+        "slug": "add",
+        "title": "git add [file]",
+        "text": "Taýýarlyk we saklanyş nokatlary\n\nFaýlyň hut häzirki mazmunyny indiki commit üçin staging meýdanyna alýar. Soňra faýly ýene üýtgetseňiz, täze üýtgeşme öz-özünden staging-e girmeýär; ýene add gerek.\n\nMeňzetme: mugallyma tabşyrjak sahypaňyzy aýratyn bukja salmak. git add . ähli degişli üýtgeşmeleri saýlaýar; bu sapakda diňe bir faýly saýlaýarys.",
+        "example": "git init\necho \"Okuw taslamasy\" > README.md\n# Faýly saýlamak\ngit add README.md\ngit status",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git add README.md bu?rugyny synap g?r??.",
+        "hint": "git add README.md",
+        "check": "^git add README\\.md$"
+      },
+      {
+        "slug": "reset-file",
+        "title": "git reset [file]",
+        "text": "Taýýarlykdan aýyrmak\n\nFaýly staging meýdanyndan çykarýar, emma iş papkasyndaky üýtgeşmelerini saklaýar. Bu git reset --hard bilen bir zat däl!\n\nMysal: README.md we bellik.txt saýlandy, ýöne häzir diňe bellik.txt tabşyrylýar. reset README.md diňe README-ni saýlawdan aýyrýar; tekst ýitmeýär.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\necho \"Täze düşündiriş\" >> README.md\necho \"Bellik\" > bellik.txt\ngit add README.md bellik.txt\n# Diňe README-ni saýlawdan aýyrmak\ngit reset README.md\ngit status\ncat README.md",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git reset README.md bu?rugyny synap g?r??.",
+        "hint": "git reset README.md",
+        "check": "^git reset README\\.md$"
+      },
+      {
+        "slug": "diff",
+        "title": "git diff",
+        "text": "Taýýarlanmadyk üýtgeşmeleri deňeşdirmek\n\nIş papkasy bilen staging meýdanynyň arasyndaky tapawudy görkezýär: ýagny entek add edilmedik üýtgeşmeler. + goşulan, - aýrylan setirleri aňladýar. Täze, yzarlanmaýan faýl adaty diff-de görünmeýär.\n\nMysal: README-niň täze setirini commit üçin saýlamazdan öň gözden geçirmek.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\necho \"Täze düşündiriş\" >> README.md\n# Entek staging-e goşulmadyk tapawut\ngit diff",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git diff bu?rugyny synap g?r??.",
+        "hint": "git diff",
+        "check": "^git diff$"
+      },
+      {
+        "slug": "diff-staged",
+        "title": "git diff --staged",
+        "text": "Saýlanan üýtgeşmeleri deňeşdirmek\n\nStaging bilen soňky commit-i deňeşdirýär. Netijede indiki commit-e girjek üýtgeşmeleri görýärsiňiz. --cached hem şol bir manyda ulanylýar.\n\nMysal: tabşyrmazdan öň saýlanan sahypalary soňky tabşyrylan görnüş bilen deňeşdirmek. git diff bolsa heniz saýlanmadyk bölegi görkezýär.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\necho \"Täze düşündiriş\" >> README.md\ngit add README.md\n# Commit-e girjek üýtgeşmeler\ngit diff --staged",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git diff --staged bu?rugyny synap g?r??.",
+        "hint": "git diff --staged",
+        "check": "^git diff --staged$"
+      },
+      {
+        "slug": "commit",
+        "title": "git commit -m [habar]",
+        "text": "Saýlanan mazmuny taryha ýazmak\n\nStaging meýdanyndaky mazmuny täze commit hökmünde saklaýar. -m yzyna düşnükli düşündiriş ýazylýar. Commit ýerli kompýuterde döredilýär, öz-özünden GitHub-a iberilmeýär.\n\nMeňzetme: saýlanan sahypalary senesi we düşündirişi bilen arhiwe tabşyrmak. Mysaldaky habar näme üýtgändigini aýdýar.",
+        "example": "git init\necho \"Okuw taslamasy\" > README.md\ngit add README.md\n# Taryha ýazmak\ngit commit -m \"README goşuldy\"\ngit log",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git commit -m \"README goşuldy\" bu?rugyny synap g?r??.",
+        "hint": "git commit -m \"README goşuldy\"",
+        "check": "^git commit -m .+$"
+      },
+      {
+        "slug": "branch-list",
+        "title": "git branch",
+        "text": "Şahalar we birleşdirmek\n\nÝerli şahalaryň sanawyny görkezýär. * belgisi häzirki işlenýän şahanyň öňünde bolýar. Şaha esasy işi bozman aýratyn üýtgeşme taýýarlamak üçin iş ýoludyr.\n\nMysal: main esasy iş, synag bolsa täze pikiri synap görýän ýol. Bu buýruk şaha döretmeýär we şaha çalyşmaýar.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\ngit branch synag\n# Häzirki main şahasynyň öňünde * görünýär\ngit branch",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git branch bu?rugyny synap g?r??.",
+        "hint": "git branch",
+        "check": "^git branch$"
+      },
+      {
+        "slug": "branch-create",
+        "title": "git branch [branch-name]",
+        "text": "Täze şaha döretmek\n\nHäzirki commit-den täze şaha döredýär. Özi şol şaha geçmeýär; geçmek üçin checkout gerek.\n\nMeňzetme: häzirki kurs işinden täze iş ýoluny açmak, emma entek öňki ýolda galmak.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\n# Täze şaha\ngit branch synag\n# * henizem main-i görkezýär\ngit branch",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git branch synag bu?rugyny synap g?r??.",
+        "hint": "git branch synag",
+        "check": "^git branch synag$"
+      },
+      {
+        "slug": "checkout",
+        "title": "git checkout [branch]",
+        "text": "Iş ýoluny çalyşmak\n\nSaýlanan şaha geçýär we onuň commitindäki faýllary iş papkasyna getirýär. Gollanmadaky git checkout setiri gysga görkezilen; şaha geçmek üçin onuň ady gerek.\n\nMysal: main-den synag-a geçmek. Ýazylmadyk üýtgeşmeler başga şahanyň faýllary bilen gabat gelmese, Git geçmegi ret edip biler; öň commit ýa-da stash ediň.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\ngit branch synag\n# Synag şahasyna geçmek\ngit checkout synag\ngit branch",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git checkout synag bu?rugyny synap g?r??.",
+        "hint": "git checkout synag",
+        "check": "^git checkout synag$"
+      },
+      {
+        "slug": "merge",
+        "title": "git merge [branch]",
+        "text": "Şahalary birleşdirmek\n\nGörkezilen şahanyň taryhyny häzirki şaha birleşdirýär. Ilki üýtgeşmeleri kabul etjek şaha geçmeli.\n\nMysal: synag-daky synag.txt faýlyny main-e goşmak. Eger iki şahada bir faýlyň şol bir bölegi dürli üýtgedilse, konflikt bolup biler; ony çözmezden birleşme tamamlanmaýar.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\ngit branch synag\ngit checkout synag\necho \"Synag işi\" > synag.txt\ngit add synag.txt\ngit commit -m \"Synag goşuldy\"\ngit checkout main\n# Häzirki şaha main; synag-daky işi oňa goşmak\ngit merge synag\nls",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git merge synag bu?rugyny synap g?r??.",
+        "hint": "git merge synag",
+        "check": "^git merge synag$"
+      },
+      {
+        "slug": "log",
+        "title": "git log",
+        "text": "Şahanyň commit taryhy\n\nHäzirki şahadan ýetip bolýan commit-leri iň täzesinden başlap görkezýär. Her ýazgyda commit-iň SHA belgisi, awtory, senesi we habary bar. Gollanmadaky iki git log setiri şol bir buýruk bolany üçin şu aýratyn sapakda jemlenýär.\n\nMeňzetme: kurs işiniň üýtgeşmeler žurnalyny okamak. Diňe log görmek faýllary üýtgetmeýär.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\necho \"Ikinji ýazgy\" >> README.md\ngit add README.md\ngit commit -m \"Düşündiriş giňeldildi\"\ngit log",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git log bu?rugyny synap g?r??.",
+        "hint": "git log",
+        "check": "^git log$"
+      },
+      {
+        "slug": "remote-add",
+        "title": "git remote add [alias] [url]",
+        "text": "Paýlaşmak we täzelemek\n\nUzakdaky repozitoriýanyň salgysyny gysga at bilen ýatda saklaýar. origin adaty at, ýöne başga at hem saýlap bolýar. Bu buýruk faýl ibermeýär; diňe baglanyşygy sazlaýar.\n\nMeňzetme: telefon depderine bir salgyny at bilen ýazmak. URL okuw mysalydyr; simulýator hakyky GitHub hasabyna birikmeýär.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\ngit remote add origin https://github.com/okuw-mysaly/taslama.git\ngit remote -v",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git remote add origin https://github.com/okuw-mysaly/taslama.git bu?rugyny synap g?r??.",
+        "hint": "git remote add origin https://github.com/okuw-mysaly/taslama.git",
+        "check": "^git remote add origin \\S+$"
+      },
+      {
+        "slug": "fetch",
+        "title": "git fetch [alias]",
+        "text": "Uzakdaky taryhy almak\n\nUzakdaky repozitoriýanyň şahalary we commitleri baradaky maglumatlary alýar, emma häzirki şahany we iş faýllaryny birleşdirmeýär. Alnan şaha origin/main ýaly at bilen görkezilýär.\n\nMysal: toparyň işini ilki gözden geçirip, diňe soňra merge etmek. Fetch bilen pull tapawudy: fetch diňe alýar, pull bolsa almakdan soň birleşdirýär.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\ngit remote add origin https://github.com/okuw-mysaly/taslama.git\ngit push origin main\n# Uzakdaky salgydan maglumat almak\ngit fetch origin",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git fetch origin bu?rugyny synap g?r??.",
+        "hint": "git fetch origin",
+        "check": "^git fetch origin$"
+      },
+      {
+        "slug": "merge-remote",
+        "title": "git merge [alias]/[branch]",
+        "text": "Alnan uzakdaky şahany birleşdirmek\n\nFetch bilen eýýäm alnan uzakdaky şahanyň taryhyny häzirki ýerli şaha goşýar. origin/main — origin salgysynyň main şahasynyň ýerli saklanan görnüşi.\n\nMysal: ilki git fetch origin, soňra git merge origin/main. Uzakdaky we ýerli ýagdaýlar eýýäm deň bolsa Already up to date diýýär.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\ngit remote add origin https://github.com/okuw-mysaly/taslama.git\ngit push origin main\ngit fetch origin\n# Alnan şahany birleşdirmek\ngit merge origin/main",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git merge origin/main bu?rugyny synap g?r??.",
+        "hint": "git merge origin/main",
+        "check": "^git merge origin\\/main$"
+      },
+      {
+        "slug": "push",
+        "title": "git push [alias] [branch]",
+        "text": "Ýerli commit-leri ibermek\n\nÝerli şahanyň commit-lerini uzakdaky repozitoriýa iberýär. origin — nirä, main — haýsy şahany ibermelidigini görkezýär. Add edilmedik ýa-da commit edilmedik üýtgeşmeler iberilmeýär.\n\nMysal: taýýar kurs işini toparyň umumy repozitoriýasyna geçirmek. Hakyky GitHub-da giriş rugsady gerek; bu ýerde diňe simulýasiýa edilýär.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\ngit remote add origin https://github.com/okuw-mysaly/taslama.git\n# main şahasyny ibermek\ngit push origin main",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git push origin main bu?rugyny synap g?r??.",
+        "hint": "git push origin main",
+        "check": "^git push origin main$"
+      },
+      {
+        "slug": "pull",
+        "title": "git pull",
+        "text": "Almak we birleşdirmek\n\nHäzirki şahanyň yzarlaýan uzakdaky şahasyndan fetch edýär, soňra adaty sazlamada merge edýär. Hakyky Git-de pull.rebase sazlamasy bolsa rebase ulanylyp biler. Şonuň üçin ilkinji push-da -u bilen yzarlaýyş baglanyşygyny goýýarys.\n\nMeňzetme: umumy topar işiniň täze böleklerini alyp, öz işiňize goşmak. Ýerli üýtgeşmeler bilen garşylyk bolsa konflikt ýüze çykyp biler.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\ngit remote add origin https://github.com/okuw-mysaly/taslama.git\ngit push -u origin main\n# Baglanan uzakdaky şahadan täzelemek\ngit pull",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git pull bu?rugyny synap g?r??.",
+        "hint": "git pull",
+        "check": "^git pull$"
+      },
+      {
+        "slug": "rm",
+        "title": "git rm [file]",
+        "text": "Faýl ýolunyň üýtgeşmelerini yzarlamak\n\nYzarlanýan faýly iş papkasyndan öçürýär we öçürilmegini staging-e goşýar. Soň commit etmek gerek, şonda öçürilme taryha ýazylýar.\n\nMysal: indi gerek däl README-ni aýyrmak. Hakyky taslamada faýlyň gereksizdigine göz ýetiriň; bu sapak diňe synag faýllarynda işleýär.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\n# Faýly aýyrmak we öçürilmegi saýlamak\ngit rm README.md\ngit status",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git rm README.md bu?rugyny synap g?r??.",
+        "hint": "git rm README.md",
+        "check": "^git rm README\\.md$"
+      },
+      {
+        "slug": "mv",
+        "title": "git mv [existing-path] [new-path]",
+        "text": "Faýlyň adyny ýa-da ýoluny üýtgetmek\n\nFaýly täze ada geçirýär we üýtgeşmäni commit üçin saýlaýar. Git soňra mazmunyň meňzeşligine görä munuň at çalşygyny tanap biler.\n\nMysal: README.md faýlynyň adyny GOLLANMA.md etmek. Faýlyň içindäki tekst üýtgemeýär.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\ngit mv README.md GOLLANMA.md\ngit status\ngit commit -m \"Gollanmanyň ady üýtgedildi\"",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git mv README.md GOLLANMA.md bu?rugyny synap g?r??.",
+        "hint": "git mv README.md GOLLANMA.md",
+        "check": "^git mv README\\.md GOLLANMA\\.md$"
+      },
+      {
+        "slug": "log-stat",
+        "title": "git log --stat -M",
+        "text": "At çalşyklary bilen taryh\n\n--stat her commit-de üýtgän faýllaryň we setirleriň gysga jemini görkezýär. -M mazmuny meňzeş faýllaryň at çalşygyny tanamagy işjeňleşdirýär.\n\nMysal: README.md → GOLLANMA.md üýtgeşmesiniň diňe at çalşygydygyny taryhda görmek.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\ngit mv README.md GOLLANMA.md\ngit commit -m \"At çalşyldy\"\ngit log --stat -M",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git log --stat -M bu?rugyny synap g?r??.",
+        "hint": "git log --stat -M",
+        "check": "^git log --stat -M$"
+      },
+      {
+        "slug": "stash",
+        "title": "git stash",
+        "text": "Wagtlaýyn saklamak\n\nYzarlanýan faýllaryň ýazylmadyk we staging-däki üýtgeşmelerini wagtlaýyn bukja saklaýar. Iş papkasyny soňky commit ýagdaýyna getirýär. Adaty stash täze, yzarlanmaýan faýllary saklamaýar; olara -u gerek.\n\nMeňzetme: işi başga şaha geçmezden öň wagtlaýyn çekmä salmak. Stash adaty commit däl we push bilen iberilmeýär.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\necho \"Täze düşündiriş\" >> README.md\ngit add README.md\n# Üýtgeşmäni wagtlaýyn goýmak\ngit stash\ncat README.md",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git stash bu?rugyny synap g?r??.",
+        "hint": "git stash",
+        "check": "^git stash$"
+      },
+      {
+        "slug": "stash-list",
+        "title": "git stash list",
+        "text": "Wagtlaýyn bukjalaryň sanawy\n\nSaklanan stash ýazgylaryny iň täzesinden başlap görkezýär. stash@{0} iň täze ýazgy, stash@{1} öňküsi. Bu sanawy görmek üýtgeşmeleri yzyna getirmeýär.\n\nMysal: öň goýlan işleriň arasynda näçe wagtlaýyn bukja bardygyny görmek.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\necho \"Täze düşündiriş\" >> README.md\ngit stash\necho \"Başga iş\" >> README.md\ngit stash\ngit stash list",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git stash list bu?rugyny synap g?r??.",
+        "hint": "git stash list",
+        "check": "^git stash list$"
+      },
+      {
+        "slug": "stash-pop",
+        "title": "git stash pop",
+        "text": "Wagtlaýyn işi yzyna getirmek\n\nIň täze stash-däki üýtgeşmeleri iş papkasyna getirýär. Üstünlikli ulanylsa, şol ýazgyny stash sanawyndan aýyrýar. Adaty pop staging ýagdaýyny doly dikeltmeýär; munuň üçin --index ulanylýar.\n\nMeňzetme: çekmä salan işiňizi çykaryp dowam etmek. Häzirki üýtgeşmeler bilen gabat gelmese konflikt bolup biler; şol ýagdaýda stash ýazgysy saklanýar.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\necho \"Täze düşündiriş\" >> README.md\ngit stash\n# Işi yzyna getirmek\ngit stash pop\ncat README.md\ngit status",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git stash pop bu?rugyny synap g?r??.",
+        "hint": "git stash pop",
+        "check": "^git stash pop$"
+      },
+      {
+        "slug": "stash-drop",
+        "title": "git stash drop",
+        "text": "Wagtlaýyn ýazgyny aýyrmak\n\nIň täze stash ýazgysyny ulanmazdan sanawdan aýyrýar. Iş faýllaryna şol üýtgeşmeler yzyna getirilmeýär.\n\nÜns beriň: bu pop däl! Gerekli işi ýitirip bilersiňiz. Ilki stash list bilen näme aýyrýandygyňyzy barlaň.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\necho \"Täze düşündiriş\" >> README.md\ngit stash\ngit stash list\n# Synag üçin saklanan işi taşlamak\ngit stash drop\ngit stash list",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git stash drop bu?rugyny synap g?r??.",
+        "hint": "git stash drop",
+        "check": "^git stash drop$"
+      },
+      {
+        "slug": "rebase",
+        "title": "git rebase [branch]",
+        "text": "Taryhy täzeden guramak\n\nHäzirki şahanyň beýleki şahada ýok commit-lerini şol şahanyň soňuna täzeden ulanýar. Täzeden ulanylan commit-leriň SHA belgileri üýtgeýär.\n\nMeňzetme: öz goşmaçalaryňyzy esasy işiň iň täze görnüşiniň üstüne ýazmak. Mysalda synag-yň işini main-iň täze commitinden soň geçirýäris. Paýlaşylan taryhy topar bilen ylalaşmazdan rebase etmäň. Garşylyk bolsa konflikt çözmeli.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\ngit branch synag\ngit checkout synag\necho \"Synag işi\" > synag.txt\ngit add synag.txt\ngit commit -m \"Synag goşuldy\"\ngit checkout main\necho \"Esasy iş\" > main.txt\ngit add main.txt\ngit commit -m \"Esasy iş giňeldildi\"\ngit checkout synag\ngit rebase main\ngit log --oneline",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git rebase main bu?rugyny synap g?r??.",
+        "hint": "git rebase main",
+        "check": "^git rebase main$"
+      },
+      {
+        "slug": "reset-hard",
+        "title": "git reset --hard [commit]",
+        "text": "Taryhy we iş papkasyny gaýtarmak\n\nHäzirki şahanyň salgylanmasyny görkezilen commit-e geçirýär, staging-i we yzarlanýan faýllary şol ýagdaý bilen çalyşýar. Ýazylmadyk üýtgeşmeler ýitýär. HEAD — häzirki commit, HEAD~1 — onuň öňki commit-i.\n\nÜns beriň: bu howply buýrukdyr. Köne commit-ler wagtlaýyn reflog arkaly dikeldilip bilse-de, ýazylmadyk üýtgeşmeler üçin beýle kepillik ýok. Ýönekeý reset [file] diňe staging-den aýyrýar; --hard faýllary hem üýtgedýär.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\necho \"Täze düşündiriş\" >> README.md\ngit add README.md\ngit commit -m \"Ikinji görnüş\"\n# Diňe okuw mysalynda bir commit yza geçmek\ngit reset --hard HEAD~1\ncat README.md\ngit log",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git reset --hard HEAD~1 bu?rugyny synap g?r??.",
+        "hint": "git reset --hard HEAD~1",
+        "check": "^git reset --hard HEAD~1$"
+      },
+      {
+        "slug": "log-range",
+        "title": "git log branchB..branchA",
+        "text": "Şahalaryň commitlerini deňeşdirmek\n\nbranchA-dan ýetip bolýan, emma branchB-den ýetip bolmaýan commit-leri görkezýär. Iki nokat .. commit toplumlaryny deňeşdirmekdir.\n\nMysal: main..synag — synag-da bar, main-de entek ýok iş. Şahalaryň atlarynyň tertibi möhümdir; tersine ýazsaňyz başga netije alarsyňyz.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\ngit branch synag\ngit checkout synag\necho \"Synag işi\" > synag.txt\ngit add synag.txt\ngit commit -m \"Synag goşuldy\"\ngit checkout main\n# Synag-a degişli, main-de ýok commitler\ngit log main..synag",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git log main..synag bu?rugyny synap g?r??.",
+        "hint": "git log main..synag",
+        "check": "^git log main\\.\\.synag$"
+      },
+      {
+        "slug": "log-follow",
+        "title": "git log --follow [file]",
+        "text": "Faýlyň taryhyny at çalşyklaryndan geçip yzarlamak\n\nBir faýla täsir eden commit-leri görkezýär we tanalan at çalşyklaryndan öňki adyny hem yzarlaýar. --follow bir faýl bilen ulanylýar.\n\nMysal: GOLLANMA.md öň README.md diýlip atlandyrylýardy. Onuň ilkinji döredilen wagtyny hem görmek üçin --follow gerek.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\ngit mv README.md GOLLANMA.md\ngit commit -m \"Gollanma ady\"\ngit log --follow GOLLANMA.md",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git log --follow GOLLANMA.md bu?rugyny synap g?r??.",
+        "hint": "git log --follow GOLLANMA.md",
+        "check": "^git log --follow GOLLANMA\\.md$"
+      },
+      {
+        "slug": "diff-branches",
+        "title": "git diff branchB...branchA",
+        "text": "Şahadaky üýtgeşmeleri görmek\n\nÜç nokat ... iki şahanyň umumy başlangyç commit-i bilen branchA-nyň soňky ýagdaýyny deňeşdirýär. Bu diňe branchA-da taýýarlanan üýtgeşmeleri gözden geçirmek üçin amatlydyr. log-daky iki nokat bilen garyşdyrmaň.\n\nMysal: main...synag synag işiniň umumy başlangyçdan bäri goşan synag.txt faýlyny görkezýär.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\ngit branch synag\ngit checkout synag\necho \"Synag işi\" > synag.txt\ngit add synag.txt\ngit commit -m \"Synag goşuldy\"\ngit checkout main\ngit diff main...synag",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git diff main...synag bu?rugyny synap g?r??.",
+        "hint": "git diff main...synag",
+        "check": "^git diff main\\.\\.\\.synag$"
+      },
+      {
+        "slug": "show",
+        "title": "git show [SHA]",
+        "text": "Commit-iň jikme-jiklikleri\n\nSHA bilen görkezilen Git obýektini adam okap bilýän görnüşde görkezýär. Commit üçin awtor, habar we girizilen üýtgeşmeler görünýär. SHA-ny git log-dan alyp bilersiňiz; HEAD häzirki commit-i görkezýän amatly salgylanmadyr.\n\nMysal: iň soňky saklanyş nokadynda näme goşulandygyna seretmek. Bu buýruk köne ýagdaýa geçmeýär, diňe görkezýär.",
+        "example": "git init\necho \"Ilkinji ýazgy\" > README.md\ngit add README.md\ngit commit -m \"Başlangyç\"\ngit log --oneline\n# HEAD ýerine log-daky öz SHA belgini hem ýazyp bolýar\ngit show HEAD",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git show HEAD bu?rugyny synap g?r??.",
+        "hint": "git show HEAD",
+        "check": "^git show (HEAD|[0-9a-f]{4,40})$"
+      },
+      {
+        "slug": "excludesfile",
+        "title": "git config --global core.excludesfile [file]",
+        "text": "Ähli taslamalarda faýllary äsgermezlik etmek\n\ncore.excludesfile özüňiziň ähli ýerli repozitoriýalaryňyz üçin umumy äsgermezlik nusgalarynyň faýlyny görkezýär. Bu faýl Git-e tötänleýin wagtlaýyn zatlary goşmazlyga kömek edýär.\n\nMysal: *.notes bilen gutarýan şahsy bellik faýllaryny hiç bir taslama goşmazlyk. Bu sazlama eýýäm yzarlanýan faýly taryhdan aýyrmaýar. Umumy ignore faýly taslamaňyzdaky .gitignore-dan aýratyn bolup biler.",
+        "example": "echo \"*.notes\" > umumy-ignore\ngit config --global core.excludesfile umumy-ignore\ngit init\necho \"Şahsy bellik\" > sapak.notes\ngit status",
+        "task": "Mysaldaky ta??arlyk ?dimlerini ?erine ?etiri?, so?ra git config --global core.excludesfile umumy-ignore bu?rugyny synap g?r??.",
+        "hint": "git config --global core.excludesfile umumy-ignore",
+        "check": "^git config --global core\\.excludesfile \\S+$"
+      },
+      {
+        "slug": "gitignore",
+        "title": ".gitignore — äsgermezlik nusgalary",
+        "text": "Äsgermezlik nusgalary\n\n.gitignore adyndaky faýla taslama üçin gerekli nusgalary ýazýarsyňyz. Bu Git buýrugy däl, sazlama faýlydyr. Gollanmadaky üç nusga: logs/ — logs atly papkalary we içindäki faýllary; *.notes — .notes bilen gutarýan faýllary; pattern*/ — ady pattern bilen başlaýan papkalary we içindäkileri äsgermezlik edýär. * islendik belgiler toplumynyň ýerine geçýär.\n\nMysal: programmanyň loglary we şahsy bellikler kod bilen bile iberilmeli däl. .gitignore faýlynyň özüni add we commit ediň, şonda toparyňyzda hem şol nusgalar ulanylar. Eýýäm yzarlanýan faýllara ignore düzgünleri täsir etmeýär; gizlin açary diňe ignore etmek ony öňki taryhdan aýyrmaýar.",
+        "example": "git init\n# Gollanmadaky nusgalary ýazmak\necho \"logs/\" > .gitignore\necho \"*.notes\" >> .gitignore\necho \"pattern*/\" >> .gitignore\n# Nusgalara gabat gelýän synag faýllary\necho \"Log\" > logs/app.log\necho \"Bellik\" > sapak.notes\necho \"Wagtlaýyn\" > pattern-test/cache.txt\n# Bu faýllar sanawda görünmez\ngit status\ngit add .gitignore\ngit commit -m \"Ignore nusgalary goşuldy\"",
+        "task": ".gitignore faýlyna üç nusgany ýazyň we git status bilen netijäni görüň.",
+        "hint": "echo \"logs/\" > .gitignore → echo \"*.notes\" >> .gitignore → echo \"pattern*/\" >> .gitignore → git status",
+        "check": "^git status$"
+      }
+    ]
+  },
+  {
+    "id": "docker",
+    "title": "Docker",
+    "intro": "Docker — programmany ähli gerekli zatlary bilen bir 'gutuda' (konteýnerde) işledýän gural. 'Meniň kompýuterimde işleýärdi' meselesini çözýär. Bu kurs Jason Cannon-nyň 'DOCKER: A Project-Based Approach to Learning' kitaby esasynda taýýarlanyldy.",
+    "steps": [
+      {
+        "title": "1. Docker näme we näme üçin gerek?",
+        "text": "Göz öňüne getiriň: siz programma ýazdyňyz we ol siziň kompýuteriňizde işleýär. Ýöne dostuňyzyň kompýuterinde işlemeýär — çünki onda başga wersiýaly programmalar bar. \"Mende işleýärdi-e!\" diýen meşhur mesele şu.\n\nDocker bu meseläni çözýär. Ol programmaňyzy ähli gerekli zatlary bilen bilelikde bir \"guty\" (konteýner) içine salýar. Bu guty islendik kompýuterde birmeňzeş işleýär.\n\nIki esasy düşünje:\n• Image (wžobraz) — programmanyň \"resepti\" ýa-da nusgasy. Mysal: nginx image-i.\n• Konteýner — image-den döredilen, hakykatda işläp duran nusga.\n\nMeňzetme: image — tort resepti, konteýner — şol resept boýunça bişirilen hakyky tort. Bir reseptden köp tort bişirip bolýar.",
+        "example": "# Docker gurnalanmy? Wersiýasyny barlaýarys:\ndocker --version\n# Netije: Docker version 27.0.3",
+        "task": "docker --version ýazyň.",
+        "hint": "docker --version",
+        "check": "^docker (--version|version)$",
+        "slug": "1-docker-n-me-we-n-me-in-gerek"
+      },
+      {
+        "title": "2. Ilkinji konteýneri işletmek",
+        "text": "'docker run' buýrugy image-i alyp, ondan konteýner döredýär we işledýär. Image kompýuteriňizde ýok bolsa, Docker ony Docker Hub atly ammardan özbaşdak ýükläp alýar.\n\nSynag üçin iň kiçi image — 'hello-world'. Ol diňe bir habar çap edýär we durýar.\n\nBellenme: 'docker run' buýrugy ilki image-i öz kompýuteriňizde gözleýär. Tapmasa, \"Unable to find image locally\" ýazyp, internetden ýükläp başlaýar.",
+        "example": "# Synag konteýnerini işletmek:\ndocker run hello-world\n# Netije: Hello from Docker!\n# Bu habar Docker-iň dogry işleýändigini görkezýär.",
+        "task": "docker run hello-world ýazyň.",
+        "hint": "docker run hello-world",
+        "check": "^docker run hello-world$",
+        "slug": "2-ilkinji-konte-neri-i-letmek"
+      },
+      {
+        "title": "3. Konteýneri fonda işletmek (-dit)",
+        "text": "Ýönekeý 'docker run debian' ýazsaňyz, konteýner işläp, derrew durar. Sebäbi: Docker konteýneri adaty programma ýaly görýär — işi gutaran pursady ýapýar.\n\nKonteýneri fonda işlemäge mejbur etmek üçin üç wajyp opsiýa bar:\n• -d (detach) — konteýneri fonda, arka planda işletmek\n• -i (interactive) — konteýnere buýruk ýazyp bilmek üçin girişi açyk galdyrmak\n• -t (tty) — konteýnere terminal birikdirmek\n\nAdatça bulary birleşdirip '-dit' ýazýarlar. Bu üç buýruk birmeňzeş:\ndocker run -dit debian\ndocker run -d -i -t debian\ndocker run -it -d debian\n\nBuýruk dogry bolsa, Docker size uzyn konteýner ID-sini (mysal: 59d927c2f43e...) yzyna berýär. ID gelmese — ýazuw ýalňyşlygy bardyr. Iň köp ýalňyşlyk: image adyny nädogry ýazmak.",
+        "example": "# debian image-inden fonda işleýän konteýner döretmek:\ndocker run -dit debian\n# Netije: uzyn ID belgisi (mysal: a485dd2fb2dd...)\n# ID geldi — konteýner işleýär!",
+        "task": "docker run -dit debian ýazyň.",
+        "hint": "docker run -dit debian",
+        "check": "^docker run .*debian",
+        "slug": "3-konte-neri-fonda-i-letmek-dit"
+      },
+      {
+        "title": "4. Işleýän konteýnerleri görmek we saklamak",
+        "text": "'docker ps' häzir işleýän konteýnerleriň sanawyny görkezýär: ID, image, ýagdaýy (STATUS) we ady (NAMES).\n\nKonteýneri saklamak üçin 'docker stop' ulanylýar. Konteýneri doly ID-si bilen däl-de, diňe başlangyç birnäçe harpy bilen hem görkezip bolýar (mysal: 59d) ýa-da ady bilen.\n\n'docker ps -a' (-a = all) duran konteýnerleri hem görkezýär. 'docker ps -l' (-l = latest) iň soňky döredilen konteýneri görkezýär.",
+        "example": "# Işleýän konteýnerler:\ndocker ps\n\n# Konteýneri saklamak (adyny ýa-da ID-siniň başyny ýazyp):\ndocker stop web\n\n# Hemmesini görmek — duranlary hem:\ndocker ps -a",
+        "task": "docker ps ýazyp, işleýän konteýnerleri görüň.",
+        "hint": "docker ps",
+        "check": "^docker ps",
+        "slug": "4-i-le-n-konte-nerleri-g-rmek-we-saklamak"
+      },
+      {
+        "title": "5. Konteýnere at bermek (--name)",
+        "text": "Docker her konteýnere tötänleýin at berýär (mysal: jolly_dewdney), ýöne öz adymyzy bermek has amatly. Bunuň üçin '--name' opsiýasy ulanylýar.\n\nBir at diňe bir konteýnerde bolup biler. Şol atly konteýner bar bolsa, Docker ýalňyşlyk berýär: \"The container name is already in use\". Köne konteýneri öçürmezden şol ady täzeden ulanyp bolmaýar.\n\nBellenme: '--name=web' we '--name web' — ikisi hem dogry ýazgy.",
+        "example": "# 'web' atly konteýner döretmek:\ndocker run -dit --name web debian\n\n# Sanawda öz adymyz görünýär:\ndocker ps\n\n# Ady bilen saklamak:\ndocker stop web",
+        "task": "docker run -dit --name web debian ýazyň.",
+        "hint": "docker run -dit --name web debian",
+        "check": "^docker run .*--name[ =]\\w+.*debian",
+        "slug": "5-konte-nere-at-bermek-name"
+      },
+      {
+        "title": "6. Konteyneri öçürmek we täzeden işletmek",
+        "text": "Duran konteýneri 'docker rm' bilen öçürýärsiňiz. Işläp duran konteýneri öçürip bolmaýar — öňürti 'docker stop' etmeli.\n\nDuran konteýneri täzeden işletmek üçin 'docker start' ulanylýar. Bu, konteýneri noldan soňky ýagdaýynda gaýtadan işe goýýar.\n\nEger konteýner ýa-da Docker serweri gaýtadan işe düşende konteýneriň özbaşdak işe girmegini isleseňiz, '--restart=always' opsiýasyny ulanyň. Bu, önümçilikde iň köp ulanylýan sazlamadyr.\n\nKöp duran konteýneri birbada arassalamak üçin: docker system prune.",
+        "example": "# Konteyneri saklap, öçürmek:\ndocker stop web\ndocker rm web\n\n# Duran konteýneri täzeden işletmek:\ndocker start web\n\n# Özbaşdak gaýtadan işe girýän konteýner:\ndocker run -dit --restart=always --name server debian",
+        "task": "docker stop web, soňra docker rm web ýazyň (web konteýneri ýok bolsa, ilki ony dörediň).",
+        "hint": "docker stop web → docker rm web",
+        "check": "^docker rm \\S+",
+        "slug": "6-konteyneri-rmek-we-t-zeden-i-letmek"
+      },
+      {
+        "title": "7. Image-lar: ýükləmək we sanaw",
+        "text": "Image — konteýneriň şablonu. 'docker pull' image-i Docker Hub-dan ýükläp alýar, ýöne konteýner döretmeýär. 'docker images' kompýuteriňizde bar bolan image-leri görkezýär (REPOSITORY, TAG, SIZE sütünleri).\n\nImage-ler gatlamly (layer) gurluşa eýe. Her gatlam öňki gatlamdan diňe tapawudy saklaýar — şonuň üçin image-ler az ýer eýeleýär. Bu, Git-iň diňe üýtgeşmeleri saklamagyna meňzeýär. 'docker history' bilen image-iň haýsy buýruklar bilen gurlandygyny görüp bolýar.\n\n'docker rmi' image-i öçürýär (rm — konteýner üçin, rmi — image üçin).",
+        "example": "# nginx (meşhur web serwer) image-ini ýüklemek:\ndocker pull nginx\n\n# Bar bolan image-ler:\ndocker images\n\n# Image-iň gatlam taryhy:\ndocker history nginx\n\n# Image-i öçürmek:\ndocker rmi nginx",
+        "task": "docker pull nginx ýazyň, soňra docker images bilen barlaň.",
+        "hint": "docker pull nginx → docker images",
+        "check": "^docker images",
+        "slug": "7-image-lar-kl-m-k-we-sanaw"
+      },
+      {
+        "title": "8. Tag-lar: image wersiýalary",
+        "text": "TAG sütüni image-iň wersiýasyny görkezýär. Tag görkezilmedik ýagdaýda 'latest' (iň soňky) tag ulanylýar. Mysal: 'nginx' = 'nginx:latest'.\n\nÜns beriň: 'latest' hemişe hakykatdanam iň täze wersiýa diýmegi aňlatmaýar — ol diňe adatyçy tarapyndan goýlan bellige. Git-däki tag ýaly, Docker tag hem belli bir wersiýany görkezýär.\n\n'docker tag' bilen image-e öz bellikleriňizi goşup bilersiňiz. Bu täze nusga döretmeýär — diňe şol bir image-e goşmaça at berýär (goşmaça disk ýeri almaýar).",
+        "example": "# nginx image-ine öz belgimizi goýmak:\ndocker tag nginx:latest nginx:myblog_stable\n\n# Netijäni görmek — iki at, bir IMAGE ID:\ndocker images\n# nginx   latest          4cdc5dd7eaad\n# nginx   myblog_stable   4cdc5dd7eaad   ← şol bir image!",
+        "task": "docker tag nginx:latest nginx:myblog_stable ýazyň.",
+        "hint": "docker tag nginx:latest nginx:myblog_stable",
+        "check": "^docker tag \\S+ \\S+",
+        "slug": "8-tag-lar-image-wersi-alary"
+      },
+      {
+        "title": "9. Portlar: konteýneri daşarky dünýä açmak",
+        "text": "Konteýneriň içinde işleýän programma (mysal: web serwer) başgaça ýapykdyr — daşardan ýetip bolmaýar. Bunu çözmek üçin port açýarys: '-p 8080:80'.\n\nBu nähili işleýär:\n• 8080 — siziň kompýuteriňizdäki (host) port. \"Daşarky dünýä\".\n• 80 — konteýneriň içindäki port. \"Içerki dünýä\".\n• Kompýuteriňiziň 8080 portuna gelen haýyşlar konteýneriň 80 portuna gönükdirilýär.\n\nŞondan soň brauzerde http://localhost:8080 açyp, konteýnerdäki web sahypany görüp bilersiňiz. 'docker ps' netijäniň PORTS sütüninde '0.0.0.0:8080->80/tcp' ýazgysy görünýär.",
+        "example": "# nginx web serwerini 8080 portda işletmek:\ndocker run --name our_nginx -d -p 8080:80 nginx\n\n# Port açyldymy? PORTS sütünine serediň:\ndocker ps\n# ... 0.0.0.0:8080->80/tcp ...\n\n# Brauzerde: http://localhost:8080",
+        "task": "docker run --name our_nginx -d -p 8080:80 nginx ýazyň.",
+        "hint": "docker run --name our_nginx -d -p 8080:80 nginx",
+        "check": "^docker run .*-p \\d+:\\d+.*nginx",
+        "slug": "9-portlar-konte-neri-da-arky-d-n-a-mak"
+      },
+      {
+        "title": "10. Konteýner bilen faýl paýlaşmak (-v)",
+        "text": "Adatça web serwere öz sahypalaryňyzy bermek isleýärsiňiz. '-v' (volume) opsiýasy kompýuteriňizdäki papkany konteýneriň içine \"birikdirýär\".\n\nÝazgy tertibi: -v <hostdaky_papka>:<konteynerdäki_ýol>:<opsiýalar>\n• ${PWD} — häzirki papkanyň doly ýoly (bash üýtgeýjisi)\n• :ro (read-only) — konteýner faýllary diňe okap biler, üýtgedip bilmez. Bu gowy howpsuzlyk endigi!\n\nMysalda: 'webpages' papkasyny döredip, içine index.html ýazýarys we nginx-e berýäris. Brauzerde öz tekstiňiz görünýär.",
+        "example": "# Web sahypa üçin papka we faýl döretmek:\nmkdir webpages\necho \"Salam, Docker!\" > index.html\n\n# Papkany nginx konteýnerine diňe-okamak (ro) görnüşinde birikdirmek:\ndocker run -p 8080:80 --name mysite -v ${PWD}/webpages:/usr/share/nginx/html:ro -d nginx\n\n# Indi localhost:8080-de \"Salam, Docker!\" görünýär",
+        "task": "mkdir webpages, soňra echo \"Salam, Docker!\" > index.html ýazyň.",
+        "hint": "mkdir webpages → echo \"Salam, Docker!\" > index.html",
+        "check": "^echo .+> ?\\S+",
+        "slug": "10-konte-ner-bilen-fa-l-pa-la-mak-v"
+      },
+      {
+        "title": "11. Işleýän konteýneriň içine girmek (exec)",
+        "text": "Käwagt konteýneriň içinde näme bolup ýatýandygyny görmek gerek bolýar. Munuň üçin SSH gerek däl — 'docker exec' buýrugy bar.\n\n'docker exec -it <at> /bin/bash' — işläp duran konteýneriň içinde bash shell açýar. -it opsiýalary interaktiw terminal üçin hökmany. Çykmak üçin 'exit' ýazyň.\n\nBaşga usul: 'docker run -it <image> /bin/bash' — täze konteýneri derrew shell bilen açýar. Ýöne -d goşmasaňyz, shell-den çykan pursatyňyz konteýner durar.\n\nBellenme: käbir kiçi image-lerde (Alpine Linux) bash ýok — ol ýerde /bin/sh ulanyň.",
+        "example": "# Işleýän 'web' konteýneriniň içine girmek:\ndocker exec -it web /bin/bash\n# Indi siz konteýneriň içindesiňiz!\n# pwd, ls ýaly buýruklary işledip bilersiňiz\n# Çykmak üçin: exit",
+        "task": "docker exec -it web /bin/bash ýazyň (web konteýneri ýok bolsa: docker run -dit --name web debian).",
+        "hint": "docker exec -it web /bin/bash",
+        "check": "^docker exec -it \\S+",
+        "slug": "11-i-le-n-konte-neri-i-ine-girmek-exec"
+      },
+      {
+        "title": "12. Loglar: konteýner näme edýär?",
+        "text": "Fonda işleýän konteýner ekrana hiç zat ýazmaýar. Onuň çykyşyny görmek üçin 'docker logs' ulanylýar.\n\nPeýdaly opsiýalar:\n• -f (follow) — logy janly yzarlaýar, täze setirler derrew görünýär (Ctrl-C bilen duruzyň)\n• -t (timestamps) — her setiriň başyna wagty goşýar. Ýalňyşlyk gözleginde gaty peýdaly.\n• --since <sene> — diňe belli bir wagtdan soňky ýazgylary görkezýär\n\nMysal: web serweriň access loglarynda kim, haçan, haýsy sahypany sorady — hemmesi 'docker logs' bilen görünýär.",
+        "example": "# Konteýneriň çykyşyny görmek:\ndocker logs our_nginx\n\n# Logy janly yzarlamak (Ctrl-C bilen durýar):\ndocker logs -f our_nginx\n\n# Wagt belgileri bilen:\ndocker logs -t our_nginx",
+        "task": "docker logs our_nginx ýazyň (konteýner ýok bolsa: docker run --name our_nginx -d -p 8080:80 nginx).",
+        "hint": "docker logs our_nginx",
+        "check": "^docker logs",
+        "slug": "12-loglar-konte-ner-n-me-ed-r"
+      },
+      {
+        "title": "13. Registry-ler we image atlary",
+        "text": "Image-ler 'registry' atly ammarlarda saklanýar. Esasy we iň meşhur registry — Docker Hub (docker.io).\n\nImage adynyň doly gurluşy:\nregistry_adresi / namespace / image : tag\n\nMysallar:\n• ubuntu:focal → docker.io/library/ubuntu:focal (resmi image-lerde 'library' namespace gizlenýär)\n• mysql/mysql-server → namespace 'mysql', image 'mysql-server'\n• jasonc/centos:7.6 → ulanyjy 'jasonc'-yň centos image-i, 7.6 wersiýasy\n\nŞirketler köplenç öz hususy (private) registry-lerini ulanyýar. Hususy registry-e girmek üçin 'docker login' gerek. Duýduryş: parol şifrlenmedik saklanýar, şonuň üçin ünsli boluň.",
+        "example": "# Docker Hub-a girmek (hususy image-ler üçin):\ndocker login\n\n# Doly at bilen image ýüklemek:\ndocker pull ubuntu:focal\n\n# Hususy registry mysaly:\n# docker pull registry.hub.docker.com/library/ubuntu:focal",
+        "task": "docker login ýazyň.",
+        "hint": "docker login",
+        "check": "^docker login",
+        "slug": "13-registry-ler-we-image-atlary"
+      },
+      {
+        "title": "14. Dockerfile: öz image-iňizi gurmak",
+        "text": "Dockerfile — image-i nädip gurmalydygyny ýazan resept faýly. Ady takyk 'Dockerfile' bolmaly (uły D, golpanlar kiçi).\n\nEsasy buýruklar (her biri image-de täze gatlam döredýär):\n• FROM — esas image (mysal: FROM debian:latest)\n• LABEL — maglumat goşmak (mysal: LABEL maintainer=\"Adyňyz\")\n• RUN — image gurulýarkа buýruk işletmek (mysal: RUN apt install -y curl)\n• COPY — faýllary image-e göçürmek\n• EXPOSE — port açmak\n• ENTRYPOINT — konteýner işleýende işleýän esasy programma\n• CMD — ENTRYPOINT-e berilýän başlangyç argument\n\nENTRYPOINT we CMD nähili bile işleýär:\nENTRYPOINT [\"/bin/ping\"] + CMD [\"www.docker.com\"] → konteýner '/bin/ping www.docker.com' işledýär. CMD-i 'docker run image google.com' ýazyp çalşyryp bolýar.",
+        "example": "# Dockerfile mazmuny (mysal):\n# FROM debian:latest\n# LABEL maintainer=\"Merdan\"\n# ENTRYPOINT [\"/bin/ping\"]\n# CMD [\"www.docker.com\"]\n\n# Simulýatorda Dockerfile döredeliň:\necho \"FROM debian:latest\" > Dockerfile\ncat Dockerfile",
+        "task": "echo \"FROM debian:latest\" > Dockerfile ýazyň.",
+        "hint": "echo \"FROM debian:latest\" > Dockerfile",
+        "check": "^echo .+> ?Dockerfile$",
+        "slug": "14-dockerfile-z-image-i-izi-gurmak"
+      },
+      {
+        "title": "15. Image gurmak we Docker Hub-a ýüklemek",
+        "text": "'docker build' Dockerfile-dan image gurýar:\n• -t <at> — image-e at/tag bermek (mysal: -t merdan/dockerping:latest)\n• Ahyryndaky nokat (.) — Dockerfile-iň häzirki papkada ýatýandygyny aňladýar\n\nGurluşda Docker her buýrugy ädimme-ädim (Step 1/4, Step 2/4...) ýerine ýetirýär we her ädim gatlam döredýär. Üýtgemede gatlamalar keshden alynýar — şonuň üçin gaýtadan gurluş gaty çalt.\n\nGuran image-iňizi Docker Hub-a 'docker push' bilen ýükläp, dünýä bilen paýlaşyp bilersiňiz. Atlandyryş: Docker_ID/repository:tag.",
+        "example": "# Image gurmak (. = Dockerfile şu papkada):\ndocker build -t merdan/dockerping:latest .\n\n# Netije: Successfully built ... / Successfully tagged ...\n\n# Docker Hub-a ýüklemek:\ndocker push merdan/dockerping:latest\n\n# Başga biri ony şeýle işledip biler:\n# docker run merdan/dockerping:latest",
+        "task": "docker build -t myimage . ýazyň (Dockerfile öňki sapakda döredilen).",
+        "hint": "docker build -t myimage .",
+        "check": "^docker build",
+        "slug": "15-image-gurmak-we-docker-hub-a-klemek"
+      },
+      {
+        "title": "16. Volume-lar: maglumaty goramak",
+        "text": "Konteýnerler \"geçinijek\" döredilýär — öçürilende içindäki maglumat hem ýitýär. Ýöne maglumaty (mysal: maglumat bazasy faýllary) saklamak gerek bolsa? Çözgüt — volume.\n\nVolume — Docker tarapyndan dolandyrylýan, konteýnerden aýratyn saklanylýan maglumat ammary. Konteýner öçse hem, volume-däki maglumat galyýar. Bir volume-i birnäçe konteýnere birikdirip hem bolýar.\n\nVolume buýruklary:\n• docker volume create <at> — döretmek\n• docker volume ls — sanaw\n• docker volume inspect <at> — jikme-jiklik (Mountpoint = hostdaky hakyky ýol)\n• docker volume rm <at> — öçürmek\n• docker volume prune — ulanylmaýanlary arassalamak (seresap boluň!)",
+        "example": "# Volume döretmek:\ndocker volume create mydata1\n\n# Sanaw:\ndocker volume ls\n\n# Jikme-jiklik (hostdaky ýoluny görkezýär):\ndocker volume inspect mydata1\n\n# Öçürmek:\ndocker volume rm mydata1",
+        "task": "docker volume create mydata1 ýazyň, soňra docker volume ls bilen barlaň.",
+        "hint": "docker volume create mydata1 → docker volume ls",
+        "check": "^docker volume ls",
+        "slug": "16-volume-lar-maglumaty-goramak"
+      },
+      {
+        "title": "17. Volume-i konteýnere birikdirmek (--mount)",
+        "text": "Volume-i konteýnere '--mount' opsiýasy bilen birikdirýäris (täze we maslahat berilýän usul; köne usul '-v'):\n\n--mount source=<volume_ady>,destination=<konteynerdäki_ýol>\n• source ýerine gysgaltma 'src', destination ýerine 'dst' ýa-da 'target' ýazyp bolýar\n• 'readonly' (ýa-da 'ro') goşsaňyz, konteýner volume-i diňe okap biler — howpsuzlyk üçin gowy endik\n• Volume ýok bolsa, Docker ony özbaşdak döredýär\n\nBarlamak üçin: docker inspect <konteýner> — \"Mounts\" bölüminde \"RW\": true/false ýazylýar.",
+        "example": "# 'mydata1' volume-ini konteýnere birikdirmek:\ndocker run -d --name withvolume --mount source=mydata1,destination=/root/volume nginx\n\n# Gysgaltma bilen (src/dst):\ndocker run -d --name vol2 --mount src=mydata1,dst=/root/volume nginx\n\n# Diňe-okamak (readonly) görnüşde:\ndocker run -d --name rocont --mount src=mydata1,dst=/data,readonly nginx",
+        "task": "docker run -d --name withvolume --mount source=mydata1,destination=/root/volume nginx ýazyň.",
+        "hint": "docker run -d --name withvolume --mount source=mydata1,destination=/root/volume nginx",
+        "check": "^docker run .*--mount",
+        "slug": "17-volume-i-konte-nere-birikdirmek-mount"
+      },
+      {
+        "title": "18. Docker network: konteýnerleriň aragatnaşygy",
+        "text": "Konteýnerler biri-biri bilen network arkaly gürleşýär. 'docker network ls' bar bolan network-leri görkezýär:\n• bridge — başlangyç network. Network görkezmedik konteýner şu ýere goşulýar. Bir bridge-däki konteýnerler biri-birini görýär.\n• host — konteýner hostyň network-uny gönüden-göni ulanyýar (izolýasiýa ýok, howply!)\n• none — networksiz\n\n'docker network inspect bridge' network-ün jikme-jikligini, şol sanda her konteýneriň IP salgysyny görkezýär (mysal: 172.17.0.2).\n\nDocker içerki firewall (iptables) arkaly '-p 8080:80' ýaly port gönükdirilmelerini amala aşyrýar.",
+        "example": "# Network-leriň sanawy:\ndocker network ls\n\n# bridge network-üniň jikme-jikligi (IP salgylary):\ndocker network inspect bridge\n\n# Konteýneri hostyň network-una goşmak (howply, seýrek ulanylýar):\n# docker run -dit --network host nginx",
+        "task": "docker network ls ýazyň.",
+        "hint": "docker network ls",
+        "check": "^docker network ls",
+        "slug": "18-docker-network-konte-nerleri-aragatna-ygy"
+      },
+      {
+        "title": "19. Öz network-iňiz: programmany izolýasiýa etmek",
+        "text": "Hakyky programmalarda web serwer we maglumat bazasy ýaly konteýnerleri beýleki konteýnerlerden aýyrmak gerek. Munuň üçin öz network-iňizi döredýärsiňiz: 'docker network create blog'.\n\nŞol network-däki konteýnerler biri-birini ATY boýunça tapyp bilýär (Docker-ің içerki DNS-i) — IP salgylary ýatda saklamaly däl. Başga network-däki konteýnerler olara ýetip bilmeýär.\n\nBlog mysaly: 'web' (php:apache) we 'db' (mariadb) konteýnerlerini 'blog' network-üne goýýarys. Maglumat bazasyna '-p' berilmeýär — daşardan ýetip bolmaýar, diňe 'web' görýär. Bu howpsuzlygyň esasy usuly!",
+        "example": "# Täze network döretmek:\ndocker network create blog\n\n# Web konteýneri şol network-de işletmek:\ndocker run --name web --network blog -p 80:80 -dit php:apache\n\n# Maglumat bazasy (daşarka açyk DÄL — -p ýok):\ndocker run --name db --network blog -e MYSQL_ROOT_PASSWORD=pw123 -d mariadb\n\n# 'web' konteýneri 'db' diýip at boýunça ýetip bilýär!",
+        "task": "docker network create blog ýazyň.",
+        "hint": "docker network create blog",
+        "check": "^docker network create \\S+",
+        "slug": "19-z-network-i-iz-programmany-izol-asi-a-etmek"
+      },
+      {
+        "title": "20. Docker Swarm: köp serwerli dolandyryş",
+        "text": "Bir serwer ýetmezçilik edende näme etmeli? Docker Swarm — birnäçe Docker serwerini bir topara (klaster) birleşdirýän gural. Maksady: programmaňyzyň hemişe işleýän bolmagyny üpjün etmek.\n\nTerminler:\n• Node — swarm-daky bir serwer\n• Manager — dolandyryjy node (buýruklar şu ýerde berilýär)\n• Worker — işi ýerine ýetirýän node\n• Replica — bir hyzmatyň nusgalarynyň sany (awtomatik köpeldip/azaldyp bolýar)\n\n'docker swarm init' bilen swarm döredilýär — siziň serweriňiz manager bolýar. Netijede beýleki serwerleri goşmak üçin token-li 'docker swarm join' buýrugy berilýär. Node-lar arasyndaky ähli aragatnaşyk TLS bilen şifrlenen.",
+        "example": "# Swarm döretmek (siz manager bolýarsyňyz):\ndocker swarm init\n# Netije: Swarm initialized: current node is now a manager\n# + beýleki serwerler üçin join buýrugy we token\n\n# Node-laryň sanawy (diňe manager-de işleýär):\ndocker node ls",
+        "task": "docker swarm init ýazyň.",
+        "hint": "docker swarm init",
+        "check": "^docker swarm init",
+        "slug": "20-docker-swarm-k-p-serwerli-dolandyry"
+      },
+      {
+        "title": "21. Swarm-da hyzmat (service) işletmek",
+        "text": "Swarm-da konteýnerleri göni däl-de, 'hyzmat' (service) hökmünde işledýäris. 'docker service create' 'docker run'-a meňzeýär, ýöne bir däl, birnäçe serwerde birnäçe nusga (replica) işledip bilýär.\n\nPeýdaly buýruklar:\n• docker service ls — hyzmatlaryň sanawy (REPLICAS sütüninde 1/1 ýaly)\n• docker service ps <at> — hyzmatyň konteýnerleri haýsy node-da işleýär\n• docker service inspect --pretty <at> — jikme-jiklik\n\nBir konteýner ýykylsa, Swarm ony özbaşdak täzeden işe goýýar — ýokary elýeterlilik (high availability) şeýle gazanylýar.",
+        "example": "# nginx hyzmatyny döretmek (80 port açyk):\ndocker service create --name web -p 80:80 nginx:latest\n\n# Hyzmatlaryň sanawy:\ndocker service ls\n\n# Hyzmatyň konteýnerleri niredе işleýär:\ndocker service ps web",
+        "task": "docker service create --name web -p 80:80 nginx:latest ýazyň.",
+        "hint": "docker service create --name web -p 80:80 nginx:latest",
+        "check": "^docker service create",
+        "slug": "21-swarm-da-hyzmat-service-i-letmek"
+      },
+      {
+        "title": "22. Kömek ulgamy we jemleýji",
+        "text": "Docker-iň içinde örän gowy kömek ulgamy bar. Haýsydyr bir buýrugy ýatdan çykarsaňyz, '--help' ýazyň:\n• docker --help — ähli esasy buýruklar\n• docker run --help — 'run' buýrugynyň ähli opsiýalary\n• docker image --help, docker volume --help — kiçi bölümler üçin hem\n\nGutardyňyz! Siz Docker-iň esasy ýoluny geçdiňiz:\n✓ Konteýner işletmek, saklamak, öçürmek (run, stop, rm, start)\n✓ Image-lar bilen işlemek (pull, images, tag, rmi, history)\n✓ Port açmak we faýl paýlaşmak (-p, -v, --mount)\n✓ Loglar we içine girmek (logs, exec)\n✓ Öz image-iňizi gurmak (Dockerfile, build, push)\n✓ Volume-lar, network-ler we Docker Swarm\n\nIndi bu bilimleri hakyky taslamaňyzda ulanyp bilersiňiz. Üstünlik!",
+        "example": "# Islendik buýruk üçin kömek:\ndocker --help\ndocker run --help\n\n# Simulýatoryň öz kömek buýrugy:\nhelp",
+        "task": "docker --help ýazyň.",
+        "hint": "docker --help",
+        "check": "^docker (--help|help)",
+        "slug": "22-k-mek-ulgamy-we-jemle-ji"
+      }
+    ]
+  }
+]

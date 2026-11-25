@@ -1,0 +1,17 @@
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Django / Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+.venv/
+staticfiles/

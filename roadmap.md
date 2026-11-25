@@ -1,0 +1,3 @@
+- [ ] Replace the GitHub course with the complete translated cheat sheet, one command per addressable lesson.
+- [ ] Support and test all cheat-sheet commands in the simulator.
+- [ ] Verify independent lesson navigation, examples, and timed demonstrations.

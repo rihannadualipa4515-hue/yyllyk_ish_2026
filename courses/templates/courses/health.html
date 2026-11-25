@@ -1,0 +1,3 @@
+{% extends "courses/base.html" %}
+{% block title %}Saglyk barlagy{% endblock %}
+{% block content %}<main class="health-page"><h1>Taýýar</h1><p>Django okuw ulgamy işleýär. Kurs sany: {{ course_count }}.</p><a href="{% url 'courses:index' %}">Baş sahypa</a></main>{% endblock %}
